@@ -6,4 +6,9 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+/* GET cadastro page. */
+router.get('/cadastro', function (req, res, next) {
+  res.render('cadastro', { title: 'Express' });
+});
+
 module.exports = router;
