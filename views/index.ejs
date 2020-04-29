@@ -1,13 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <title><%= title %></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/images/icon.png" type="image/x-icon">
+  <title>Login</title>
   <link rel="stylesheet" href="/stylesheets/normalize.css">
   <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
-  <p>Projeto padrão</p>
+  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-8 div-background">
+        
+      </div>
+      <div class="col-sm-4 div-formulario">
+        
+        <form>
+          <img src="/images/logo-branco.png" alt="logo" class="logo">
+          <h1 class="titulo">Entrar</h1>
+          <div class="form-group">
+            <label for="email" class="label">Email</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+          </div>
+          <div class="form-group">
+            <label for="senha" class="label">Senha</label>
+            <input type="password" class="form-control" id="senha">
+          </div>
+          <button type="submit" class="btn btn-primary">Entrar</button>
+          <button type="button" class="btn btn-cadastrar">Cadastrar</button>
+          <a href="#" class="link-esqueci-senha">Esqueci minha senha</a>
+        </form>
+        
+      </div>
+    </div>
+  </div>
   
   <script src="/javascripts/jquery-3.4.1.min.js"></script>
   <script src="/javascripts/bootstrap.min.js"></script>
