@@ -24,26 +24,24 @@ body {
 }
 
 
+
+/* AQUI INICIA O CSS MOBILE FIRST */
 .div-background{
-  background-image: url('/images/background.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  height: 100vh;
+ display: none;
 }
 
 .div-formulario{
-  background-color: var(--secondary-text-color);
+  background-color: var(--text-primary-color);
 }
 
 .div-formulario form{
   display: flex;
   flex-direction: column;
-  padding: 20% 20% 0 20%;
+  padding: 20% 10% 0 10%;
 }
 
 .logo{
-  /*content: url('/images/logo-branco.png');*/
+  content: url('/images/logo-preto.png');
   display: flex;
   align-self: center;
   max-width: 60%;
@@ -51,14 +49,15 @@ body {
 }
 
 .titulo{
-  color: var(--text-primary-color);
+  color: var(--accent-color);
   text-transform: uppercase;
   text-align: center;
   font-size: large;
+  margin-bottom: 10vh;
 }
 
 .label{
-  color: var(--text-primary-color);
+  color: var(--primary-text-color);
 }
 
 .btn-cadastrar{
@@ -69,7 +68,7 @@ body {
 
 .link-esqueci-senha{
   margin: 10% 0 0 0;
-  color: var(--text-primary-color);
+  color: var(--accent-color);
   text-align: center;
 }
 
@@ -129,8 +128,7 @@ body {
 }
 
 .nav-data{
-  display: flex;
-  align-items: center;
+  display: none;
 }
 
 .nav-data label{
@@ -165,13 +163,14 @@ body {
 }
 
 .card-img-top{
-  padding: 1vh;
-  width: 100%;
+  padding: 3vh 0 3vh 3vh;
+  width: 39%;
 }
 
 .card{
-  width: 13.2rem;
+  width: 100%;
   margin: 1vh;
+  flex-direction: row;
 }
 
 .btn-status{
@@ -269,5 +268,268 @@ width: 100%;
     padding-top: 0;
     resize: none;
 }
+/* AQUI FINALIZA O CSS MOBILE FIRST */
 
+
+
+
+
+
+/* AQUI INICIA O CSS DE DESKTOP */
+@media only screen and (min-width: 990px) {
+
+
+.div-background {
+  display: block;
+  background-image: url('/images/background.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 100vh;
+}
+
+.div-formulario {
+  background-color: var(--secondary-text-color);
+}
+
+.div-formulario form {
+  display: flex;
+  flex-direction: column;
+  padding: 20% 20% 0 20%;
+}
+
+.logo {
+  content: url('/images/logo-branco.png');
+  display: flex;
+  align-self: center;
+  max-width: 60%;
+  width: 60%;
+}
+
+.titulo {
+  color: var(--text-primary-color);
+  text-transform: uppercase;
+  text-align: center;
+  font-size: large;
+}
+
+.label {
+  color: var(--text-primary-color);
+}
+
+.btn-cadastrar {
+  background-color: var(--light-primary-color);
+  color: var(--secondary-text-color);
+  margin: 7% 0 0 0;
+}
+
+.link-esqueci-senha {
+  margin: 10% 0 0 0;
+  color: var(--text-primary-color);
+  text-align: center;
+}
+
+/*Aqui inicia o estilo da pagina home*/
+.body-home {
+  background-color: var(--divider-color-light);
+}
+
+.header {
+  position: fixed;
+  top: 0px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.header,
+.header-user {
+  background-color: var(--text-primary-color);
+  color: var(--dark-primary-color);
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  max-width: 100vw;
+  height: 10vh;
+  margin-bottom: 0.5vh;
+}
+
+.header-user-img {
+  font-size: 2.5em;
+  margin: 1.5%;
+}
+
+.header-user {
+  justify-content: space-between;
+}
+
+.header-user-name {
+  flex-grow: 1;
+}
+
+.header-sair {
+  margin: 2vw;
+}
+
+.nav-filtro {
+  background-color: var(--text-primary-color);
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  margin-bottom: 1vh;
+  position: fixed;
+  top: 10.4vh;
+  z-index: 1;
+  width: 100vw;
+  min-width: 100vw;
+  overflow: auto;
+}
+
+.nav-data {
+  display: flex;
+  align-items: center;
+}
+
+.nav-data label {
+  padding: 0 0.4vw;
+}
+
+.btn-buscar {
+  margin-left: 1vw;
+}
+
+.nav-nova-ocorrencia {
+  margin-top: 1vh;
+}
+
+.nav-nova-ocorrencia .texto {
+  padding-right: 1vw;
+}
+
+.main-ul,
+.main-ul-item {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.main {
+  position: fixed;
+  top: 18.5vh;
+  overflow-y: scroll;
+  height: 73vh;
+}
+
+.card-img-top {
+  padding: 1vh;
+  width: 100%;
+}
+
+.card {
+  width: 13.2rem;
+  margin: 1vh;
+  flex-direction: column;
+}
+
+.btn-status {
+  width: 100%;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0px;
+  background-color: var(--text-primary-color);
+  width: 100%;
+  padding: 2vh 0 0 2vh;
+  text-transform: uppercase;
+  color: var(--secondary-text-color);
+}
+
+.main-denuncia {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 10.5vh;
+  height: 81vh;
+  background-color: var(--text-primary-color);
+}
+
+.sessao-denuncia .imagem {
+  width: 100%;
+  height: 23vh;
+  background-color: var(--secondary-text-color);
+  border-radius: 7px;
+  margin-bottom: 3vh;
+  text-align: center;
+  color: var(--text-primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sessao-denuncia .imagem .icone-camera {
+  font-size: 3em;
+}
+
+.sessao-denuncia .imagem .imagem-importada {
+  display: none;
+}
+
+.sessao-denuncia input[type=text] {
+  height: 6vh;
+  border: 2px solid var(--dark-primary-color);
+  border-radius: 7px;
+  padding: 1vw;
+}
+
+.sessao-denuncia input[type=submit] {
+  width: 100%;
+}
+
+.btn-voltar {
+  display: flex;
+  width: 100%;
+  color: var(--dark-primary-color);
+  border: 1px solid var(--dark-primary-color);
+  margin-top: 2vh;
+  padding: 0.5vh;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.btn-voltar .texto {
+  width: 100%;
+  text-align: center;
+}
+
+.btn-voltar:hover {
+  text-decoration: none;
+}
+
+.denuncia-selecionada label {
+  color: var(--dark-primary-color);
+  margin-bottom: 0;
+}
+
+.denuncia-selecionada .em-linha {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.denuncia-selecionada input[type=text],
+.denuncia-selecionada textarea {
+  border: none;
+  padding-left: 0;
+  margin-top: 0;
+  padding-top: 0;
+  resize: none;
+}
+}
+
+/* AQUI FINALIZA O CSS DE DESKTOP */
 
