@@ -11,9 +11,15 @@ router.get('/', function(req, res, next) {
 router.get('/denuncia', function (req, res, next) {
   res.render('usuario/denuncia');
 });
-/* GET nova denuncia selecionada listing. */
+
+/* GET denuncia selecionada listing. */
 router.get('/denuncia/:id', function (req, res, next) {
   res.render('usuario/denuncia-selecionada');
+});
+
+/* GET perfil do usuário listing. */
+router.get('/perfil', function (req, res, next) {
+  res.render('usuario/usuario');
 });
 
 module.exports = router;
