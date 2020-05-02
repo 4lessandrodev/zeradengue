@@ -1,46 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Um site para denúncias de foco do mosquito da dengue">
-  <meta name="keywords" content="Mosquito da dengue, foco da dengue, água parada">
-  <meta name="author" content="Alessandro Dev">
-  <link rel="shortcut icon" href="/images/icon.png" type="image/x-icon">
-  <title>Login</title>
-  <link rel="stylesheet" href="/stylesheets/normalize.css">
-  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-<body>
-  
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-8 div-background">
-        
-      </div>
-      <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 div-formulario">
-        <form>
-          <img src="" alt="logo" class="logo">
-          <h1 class="titulo">Entrar</h1>
-          <div class="form-group">
-            <label for="email" class="label">Email</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-          </div>
-          <div class="form-group">
-            <label for="senha" class="label">Senha</label>
-            <input type="password" class="form-control" id="senha">
-          </div>
-          <button type="submit" class="btn btn-primary">Entrar</button>
-          <button type="button" class="btn btn-cadastrar" onclick="location.href='/cadastro'">Cadastrar</button>
-          <a href="#" class="link-esqueci-senha">Esqueci minha senha</a>
-        </form>
-        
-      </div>
-    </div>
-  </div>
-  
-  <script src="/javascripts/jquery-3.4.1.min.js"></script>
-  <script src="/javascripts/bootstrap.min.js"></script>
-</body>
-</html>
+<%- include('includes/head') %>
+
+<%- include('includes/login') %>
+
+<%- include('includes/scripts') %>

@@ -1,65 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<%- include('includes/head') %>
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Um site para denúncias de foco do mosquito da dengue">
-    <meta name="keywords" content="Mosquito da dengue, foco da dengue, água parada">
-    <meta name="author" content="Alessandro Dev">
-    <link rel="shortcut icon" href="/images/icon.png" type="image/x-icon">
-    <title>Usuário</title>
-    <script src="https://kit.fontawesome.com/8701d44bdc.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/stylesheets/normalize.css">
-    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+<%- include('includes/header') %>
 
-  <body class="body-home">
-    <header class="header">
-      <div class="header-user">
-        <div class="header-user-img">
-          <i class="fas fa-user-circle"></i>
-        </div>
-        <div class="header-user-name">
-          <h2>usuario</h2>
-        </div>
-        <div class="header-sair">
-          <i class="fas fa-power-off"></i>
-        </div>
-      </div>
-    </header>
-    <main class="main-denuncia usuario">
-      <section class="sessao-denuncia">
-        <form action="">
+<%- include('includes/perfil-usuario') %>
 
-          <div class="imagem">
-            <div class="icone-camera">
-              <i class="fas fa-user-circle"></i>
-            </div>
-            <div class="imagem-importada">
-              <img src="" alt="imagem">
-            </div>
-          </div>
+<%- include('includes/footer')%>
 
-          <div class="form-group">
-            <label for="nome" class="sr-only">Nome</label>
-            <input type="text" name="endereco" id="nome" placeholder="Nome">
-          </div>
-
-          <input type="submit" value="Salvar" class="btn btn-primary">
-          <a href="" class="btn-voltar"><i class="fas fa-chevron-left"></i> <span class="texto">Voltar</span></a>
-
-        </form>
-      </section>
-    </main>
-    <footer class="footer">
-      <address>
-        Uma iniciativa do ministério da saúde 2020
-      </address>
-    </footer>
-    <script src="/javascripts/jquery-3.4.1.min.js"></script>
-    <script src="/javascripts/bootstrap.min.js"></script>
-  </body>
-
-</html>
+<%- include('includes/scripts') %>

@@ -1,72 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Um site para denúncias de foco do mosquito da dengue">
-  <meta name="keywords" content="Mosquito da dengue, foco da dengue, água parada">
-  <meta name="author" content="Alessandro Dev">
-  <link rel="shortcut icon" href="/images/icon.png" type="image/x-icon">
-  <title>Denúncia</title>
-  <script src="https://kit.fontawesome.com/8701d44bdc.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/stylesheets/normalize.css">
-  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
+<%- include('includes/head') %>
+<%- include('includes/denuncia-selecionada') %>
+<%- include('includes/footer') %>
+<%- include('includes/scripts') %>
 
-<body class="body-home">
-  <header class="header">
-    <div class="header-user">
-      <div class="header-user-img">
-        <i class="fas fa-user-circle"></i>
-      </div>
-      <div class="header-user-name">
-        <h2>usuario</h2>
-      </div>
-      <div class="header-sair">
-        <i class="fas fa-power-off"></i>
-      </div>
-    </div>
-  </header>
-  <main class="main-denuncia">
-    <section class="sessao-denuncia denuncia-selecionada">
-      
-      <div class="imagem">
-        <div class="icone-camera">
-          <i class="fas fa-image"></i>
-        </div>
-        <div class="imagem-importada">
-          <img src="" alt="imagem">
-        </div>
-      </div>
-      
-      <div class="form-goup em-linha">
-        <label for="endereco">Endereço</label>
-        <textarea name="endereco" id="endereco" readonly rows="3">Rua vai quem quer vai quem quer, 50</textarea>
-      </div>
-
-      <div class="form-goup em-linha">
-        <label for="cidade">Cidade</label>
-        <input type="text" name="cidade" id="cidade" value="São Paulo - SP" readonly>
-      </div>
-
-      <div class="form-goup em-linha">
-        <label for="status">Status</label>
-        <input type="text" name="status" id="status" value="Pendente" readonly>
-      </div>
-      
-      <a href="" class="btn-voltar"><i class="fas fa-chevron-left"></i> <span class="texto">Voltar</span></a>
-      
-    </section>
-  </main>
-  <footer class="footer">
-    <address>
-      Uma iniciativa do ministério da saúde 2020
-    </address>
-  </footer>
-  <script src="/javascripts/jquery-3.4.1.min.js"></script>
-  <script src="/javascripts/bootstrap.min.js"></script>
-</body>
-
-</html>
+  
