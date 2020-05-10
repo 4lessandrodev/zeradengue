@@ -29,11 +29,21 @@ body {
 
 /* AQUI INICIA O CSS MOBILE FIRST */
 .div-background{
- display: none;
+  display: none;
 }
 
 .div-formulario{
   background-color: var(--text-primary-color);
+}
+
+.div-formulario .alert ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.div-formulario .alert{
+  padding: 0.5rem 1rem;
 }
 
 .div-formulario form{
@@ -42,8 +52,8 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   padding: 20% 10% 0 10%;
 }
 
@@ -53,7 +63,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-item-align: center;
-      align-self: center;
+  align-self: center;
   max-width: 60%;
   width: 60%;
 }
@@ -102,8 +112,8 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 100vw;
   max-width: 100vw;
   height: 10vh;
@@ -117,14 +127,14 @@ body {
 
 .header-user{
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .header-user-name{
   -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
 .header-sair{
@@ -137,10 +147,10 @@ body {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
   margin-bottom: 1vh;
   position: fixed;
   top: 10.4vh;
@@ -178,7 +188,7 @@ body {
   margin: 0;
   padding: 0;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .main{
@@ -198,8 +208,8 @@ body {
   margin: 1vh;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 .btn-status{
@@ -222,11 +232,11 @@ body {
   display: flex;
   width: 100vw;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   position:fixed;
   top: 10.5vh;
   height: 81vh;
@@ -245,11 +255,11 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .sessao-denuncia .imagem .icone-camera{
@@ -260,14 +270,14 @@ body {
 }
 
 .sessao-denuncia input[type=text]{
-height: 6vh;
-border: 2px solid var(--dark-primary-color);
-border-radius: 7px;
-padding: 1vw;
+  height: 6vh;
+  border: 2px solid var(--dark-primary-color);
+  border-radius: 7px;
+  padding: 1vw;
 }
 
 .sessao-denuncia input[type=submit]{
-width: 100%;
+  width: 100%;
 }
 
 .btn-voltar{
@@ -280,11 +290,11 @@ width: 100%;
   margin-top: 2vh;
   padding: 0.5vh;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   border-radius: 5px;
 }
 
@@ -307,323 +317,8 @@ width: 100%;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-
-.denuncia-selecionada input[type=text],
-.denuncia-selecionada textarea {
-  border: none;
-    padding-left: 0;
-    margin-top: 0;
-    padding-top: 0;
-    resize: none;
-}
-/* AQUI FINALIZA O CSS MOBILE FIRST */
-
-
-
-
-
-
-/* AQUI INICIA O CSS DE DESKTOP */
-@media only screen and (min-width: 990px) {
-
-
-.div-background {
-  display: block;
-  background-image: url('/images/background.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  height: 100vh;
-}
-
-.div-formulario {
-  background-color: var(--secondary-text-color);
-}
-
-.div-formulario form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 20% 20% 0 20%;
-}
-
-.logo {
-  content: url('/images/logo-branco.png');
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-item-align: center;
-      align-self: center;
-  max-width: 60%;
-  width: 60%;
-}
-
-.titulo {
-  color: var(--text-primary-color);
-  text-transform: uppercase;
-  text-align: center;
-  font-size: large;
-}
-
-.label {
-  color: var(--text-primary-color);
-}
-
-.btn-cadastrar {
-  background-color: var(--light-primary-color);
-  color: var(--secondary-text-color);
-  margin: 7% 0 0 0;
-}
-
-.link-esqueci-senha {
-  margin: 10% 0 0 0;
-  color: var(--text-primary-color);
-  text-align: center;
-}
-
-/*Aqui inicia o estilo da pagina home*/
-.body-home {
-  background-color: var(--divider-color-light);
-}
-
-.header {
-  position: fixed;
-  top: 0px;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.header,
-.header-user {
-  background-color: var(--text-primary-color);
-  color: var(--dark-primary-color);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100vw;
-  max-width: 100vw;
-  height: 10vh;
-  margin-bottom: 0.5vh;
-}
-
-.header-user-img {
-  font-size: 2.5em;
-  margin: 1.5%;
-}
-
-.header-user {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.header-user-name {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-}
-
-.header-sair {
-  margin: 2vw;
-}
-
-.nav-filtro {
-  background-color: var(--text-primary-color);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
-  margin-bottom: 1vh;
-  position: fixed;
-  top: 10.4vh;
-  z-index: 1;
-  width: 100vw;
-  min-width: 100vw;
-  overflow: auto;
-}
-
-.nav-data {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.nav-data label {
-  padding: 0 0.4vw;
-}
-
-.btn-buscar {
-  margin-left: 1vw;
-}
-
-.nav-nova-ocorrencia {
-  margin-top: 1vh;
-}
-
-.nav-nova-ocorrencia .texto {
-  padding-right: 1vw;
-}
-
-.main-ul,
-.main-ul-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.main {
-  position: fixed;
-  top: 18.5vh;
-  overflow-y: scroll;
-  height: 73vh;
-}
-
-.card-img-top {
-  padding: 1vh;
-  width: 100%;
-}
-
-.card {
-  width: 13.2rem;
-  margin: 1vh;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.btn-status {
-  width: 100%;
-}
-
-.footer {
-  position: fixed;
-  bottom: 0px;
-  background-color: var(--text-primary-color);
-  width: 100%;
-  padding: 2vh 0 0 2vh;
-  text-transform: uppercase;
-  color: var(--secondary-text-color);
-}
-
-.main-denuncia {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100vw;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: fixed;
-  top: 10.5vh;
-  height: 81vh;
-  background-color: var(--text-primary-color);
-}
-
-.sessao-denuncia .imagem {
-  width: 100%;
-  height: 23vh;
-  background-color: var(--secondary-text-color);
-  border-radius: 7px;
-  margin-bottom: 3vh;
-  text-align: center;
-  color: var(--text-primary-color);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.sessao-denuncia .imagem .icone-camera {
-  font-size: 3em;
-}
-
-.sessao-denuncia .imagem .imagem-importada {
-  display: none;
-}
-
-.sessao-denuncia input[type=text] {
-  height: 6vh;
-  border: 2px solid var(--dark-primary-color);
-  border-radius: 7px;
-  padding: 1vw;
-}
-
-.sessao-denuncia input[type=submit] {
-  width: 100%;
-}
-
-.btn-voltar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  color: var(--dark-primary-color);
-  border: 1px solid var(--dark-primary-color);
-  margin-top: 2vh;
-  padding: 0.5vh;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 5px;
-}
-
-.btn-voltar .texto {
-  width: 100%;
-  text-align: center;
-}
-
-.btn-voltar:hover {
-  text-decoration: none;
-}
-
-.denuncia-selecionada label {
-  color: var(--dark-primary-color);
-  margin-bottom: 0;
-}
-
-.denuncia-selecionada .em-linha {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 
@@ -635,6 +330,321 @@ width: 100%;
   padding-top: 0;
   resize: none;
 }
+/* AQUI FINALIZA O CSS MOBILE FIRST */
+
+
+
+
+
+
+/* AQUI INICIA O CSS DE DESKTOP */
+@media only screen and (min-width: 990px) {
+  
+  
+  .div-background {
+    display: block;
+    background-image: url('/images/background.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 100vh;
+  }
+  
+  .div-formulario {
+    background-color: var(--secondary-text-color);
+  }
+  
+  .div-formulario form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 20% 20% 0 20%;
+  }
+  
+  .logo {
+    content: url('/images/logo-branco.png');
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-item-align: center;
+    align-self: center;
+    max-width: 60%;
+    width: 60%;
+  }
+  
+  .titulo {
+    color: var(--text-primary-color);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: large;
+  }
+  
+  .label {
+    color: var(--text-primary-color);
+  }
+  
+  .btn-cadastrar {
+    background-color: var(--light-primary-color);
+    color: var(--secondary-text-color);
+    margin: 7% 0 0 0;
+  }
+  
+  .link-esqueci-senha {
+    margin: 10% 0 0 0;
+    color: var(--text-primary-color);
+    text-align: center;
+  }
+  
+  /*Aqui inicia o estilo da pagina home*/
+  .body-home {
+    background-color: var(--divider-color-light);
+  }
+  
+  .header {
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .header,
+  .header-user {
+    background-color: var(--text-primary-color);
+    color: var(--dark-primary-color);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100vw;
+    max-width: 100vw;
+    height: 10vh;
+    margin-bottom: 0.5vh;
+  }
+  
+  .header-user-img {
+    font-size: 2.5em;
+    margin: 1.5%;
+  }
+  
+  .header-user {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+  
+  .header-user-name {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+  }
+  
+  .header-sair {
+    margin: 2vw;
+  }
+  
+  .nav-filtro {
+    background-color: var(--text-primary-color);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    margin-bottom: 1vh;
+    position: fixed;
+    top: 10.4vh;
+    z-index: 1;
+    width: 100vw;
+    min-width: 100vw;
+    overflow: auto;
+  }
+  
+  .nav-data {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  
+  .nav-data label {
+    padding: 0 0.4vw;
+  }
+  
+  .btn-buscar {
+    margin-left: 1vw;
+  }
+  
+  .nav-nova-ocorrencia {
+    margin-top: 1vh;
+  }
+  
+  .nav-nova-ocorrencia .texto {
+    padding-right: 1vw;
+  }
+  
+  .main-ul,
+  .main-ul-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  
+  .main {
+    position: fixed;
+    top: 18.5vh;
+    overflow-y: scroll;
+    height: 73vh;
+  }
+  
+  .card-img-top {
+    padding: 1vh;
+    width: 100%;
+  }
+  
+  .card {
+    width: 13.2rem;
+    margin: 1vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  
+  .btn-status {
+    width: 100%;
+  }
+  
+  .footer {
+    position: fixed;
+    bottom: 0px;
+    background-color: var(--text-primary-color);
+    width: 100%;
+    padding: 2vh 0 0 2vh;
+    text-transform: uppercase;
+    color: var(--secondary-text-color);
+  }
+  
+  .main-denuncia {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100vw;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: fixed;
+    top: 10.5vh;
+    height: 81vh;
+    background-color: var(--text-primary-color);
+  }
+  
+  .sessao-denuncia .imagem {
+    width: 100%;
+    height: 23vh;
+    background-color: var(--secondary-text-color);
+    border-radius: 7px;
+    margin-bottom: 3vh;
+    text-align: center;
+    color: var(--text-primary-color);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  
+  .sessao-denuncia .imagem .icone-camera {
+    font-size: 3em;
+  }
+  
+  .sessao-denuncia .imagem .imagem-importada {
+    display: none;
+  }
+  
+  .sessao-denuncia input[type=text] {
+    height: 6vh;
+    border: 2px solid var(--dark-primary-color);
+    border-radius: 7px;
+    padding: 1vw;
+  }
+  
+  .sessao-denuncia input[type=submit] {
+    width: 100%;
+  }
+  
+  .btn-voltar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    color: var(--dark-primary-color);
+    border: 1px solid var(--dark-primary-color);
+    margin-top: 2vh;
+    padding: 0.5vh;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 5px;
+  }
+  
+  .btn-voltar .texto {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .btn-voltar:hover {
+    text-decoration: none;
+  }
+  
+  .denuncia-selecionada label {
+    color: var(--dark-primary-color);
+    margin-bottom: 0;
+  }
+  
+  .denuncia-selecionada .em-linha {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  
+  
+  .denuncia-selecionada input[type=text],
+  .denuncia-selecionada textarea {
+    border: none;
+    padding-left: 0;
+    margin-top: 0;
+    padding-top: 0;
+    resize: none;
+  }
 }
 
 /* AQUI FINALIZA O CSS DE DESKTOP */
