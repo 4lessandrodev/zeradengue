@@ -1,0 +1,10 @@
+<%if(error != null){%>
+ <div class="alert alert-danger">
+   <h4><strong>Erros</strong></h4>
+   <ul>
+     <% for(let erro of error){ %>
+       <li><%=erro.msg%> </li>
+     <% } %>
+   </ul>
+ </div>
+<%}%> 

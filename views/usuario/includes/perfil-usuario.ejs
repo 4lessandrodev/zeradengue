@@ -1,24 +1,26 @@
     <main class="main-denuncia usuario">
       <section class="sessao-denuncia">
-        <form action="">
-
-          <div class="imagem">
-            <div class="icone-camera">
+        <form action="/users/perfil?_method=PUT" method="POST" enctype="multipart/form-data">
+          
+          <div class="imagem" style="background-image: url('/uploads/<%=usuario.imagem%>');">
+            <div class="icone-camera" <%if(usuario.imagem != 'no_image.png'){%> style="display:none" <%}%>  >
               <i class="fas fa-user-circle"></i>
             </div>
             <div class="imagem-importada">
-              <img src="" alt="imagem">
+              
             </div>
+            <input type="file" name="imagem" id="imagem" class="sr-only" onchange="openFile(event)">
           </div>
-
+          <%- include('alertas') %>
           <div class="form-group">
             <label for="nome" class="sr-only">Nome</label>
-            <input type="text" name="endereco" id="nome" placeholder="Nome">
+            <input type="text" name="nome" id="nome" placeholder="Nome" value="<%=usuario.nome%>">
           </div>
-
+          
           <input type="submit" value="Salvar" class="btn btn-primary">
-          <a href="" class="btn-voltar"><i class="fas fa-chevron-left"></i> <span class="texto">Voltar</span></a>
-
+          <a href="/users" class="btn-voltar"><i class="fas fa-chevron-left"></i> <span class="texto">Voltar</span></a>
+          
         </form>
       </section>
     </main>
+    <script src="/javascripts/perfil.js"></script>

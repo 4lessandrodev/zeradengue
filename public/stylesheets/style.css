@@ -54,7 +54,7 @@ body {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding: 20% 10% 0 10%;
+  padding: 12% 10% 0 10%;
 }
 
 .logo{
@@ -73,7 +73,7 @@ body {
   text-transform: uppercase;
   text-align: center;
   font-size: large;
-  margin-bottom: 10vh;
+  margin-bottom: 5vh;
 }
 
 .label{
@@ -123,12 +123,17 @@ body {
 .header-user-img{
   font-size: 2.5em;
   margin: 1.5%;
+  width: 50px;
+  height: 50px;
+  border-radius: 21px;
+  background-size: cover;
 }
 
 .header-user{
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .header-user-name{
@@ -137,8 +142,12 @@ body {
   flex-grow: 1;
 }
 
+.header-user-name h2 {
+  margin-bottom: -0.5rem;
+}
+
 .header-sair{
-  margin: 2vw;
+  margin: 5vw;
 }
 
 .nav-filtro{
@@ -260,6 +269,8 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  background-size: cover;
+  border: 1px solid var(--secondary-text-color);
 }
 
 .sessao-denuncia .imagem .icone-camera{
@@ -273,7 +284,7 @@ body {
   height: 6vh;
   border: 2px solid var(--dark-primary-color);
   border-radius: 7px;
-  padding: 1vw;
+  padding: 2vw;
 }
 
 .sessao-denuncia input[type=submit]{
@@ -301,6 +312,7 @@ body {
 .btn-voltar .texto{
   width: 100%;
   text-align: center;
+  padding: 3% 0;
 }
 
 .btn-voltar:hover{
@@ -362,7 +374,7 @@ body {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    padding: 20% 20% 0 20%;
+    padding: 12% 20% 0 20%;
   }
   
   .logo {
@@ -444,8 +456,14 @@ body {
     flex-grow: 1;
   }
   
+  .header-user-name h2 {
+    margin-bottom: -0.5rem;
+    cursor: pointer;
+  }
+  
   .header-sair {
     margin: 2vw;
+    cursor: pointer;
   }
   
   .nav-filtro {
@@ -583,6 +601,10 @@ body {
     display: none;
   }
   
+  .sessao-denuncia .imagem{
+    cursor: pointer;
+  }
+  
   .sessao-denuncia input[type=text] {
     height: 6vh;
     border: 2px solid var(--dark-primary-color);
@@ -615,6 +637,7 @@ body {
   .btn-voltar .texto {
     width: 100%;
     text-align: center;
+    padding: 3% 0;
   }
   
   .btn-voltar:hover {

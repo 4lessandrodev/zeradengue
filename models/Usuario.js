@@ -1,10 +1,12 @@
-const conect = require('./../config/database');
-const fs = require('fs');
-const path = require('path');
-
 class Usuario{
-  constructor (email, senha, admin, data_cadastro, ativo, nome, imagem) {
-    this.Usuario = {
+
+  //O construtor recebe parâmetros default de acordo com as colunas do banco de dados
+  //Se a coluna do BD não aceita valores nulos a variável deve ter um valor default
+  constructor (email, senha, data_cadastro=new Date(), admin=0, ativo=1, nome='Anônimo', imagem='no_image.png') {
+    this.id = null; //Para aplicar filtros e buscas da model em GenericDao
+    this.tableName = 'usuarios'; //Para saber qual tabela manipular no banco de dados através da GenericDao
+    this.modelName = 'Usuario'; //Para saber qual atributo selecionar na classe GenericDao
+    this.Usuario = { //Objeto a ser informado como json na GenericDao para salvar sem ter que informar colunas
       email,
       senha,
       admin,
@@ -15,6 +17,12 @@ class Usuario{
     };
   }
   
+
+  //Getters AND Setters tem como objetivo proteger o objeto da model para não incluir atributos que não 
+  //existem no banco de dados 
+  get Id() {
+    return this.id;
+  }
   get Email() {
     return this.Usuario.email;
   }
@@ -53,42 +61,13 @@ class Usuario{
     this.Usuario.ativo = value;
   }
   set Nome(value) {
-    this.Usuario.nome = value.toLowerCase();
+    this.Usuario.nome = value[0].toLocaleUpperCase() + value.slice(1, value.length).toLowerCase();
   }
   set Imagem(value) {
     this.Usuario.imagem = value;
   }
-  
-  static buscar(email) {
-    let users = fs.readFileSync(path.join('arquivos', 'usuarios.json'), { encoding: 'utf-8' });
-    users = JSON.parse(users);
-    return users[0];
-  }
-  
-  static editar() {
-    
-  }
-  
-  static salvar(model) {
-    let users;
-    let existe = fs.existsSync(path.join('arquivos', 'usuarios.json'));
-    console.log(existe);
-    if (existe) {
-      users = fs.readFileSync(path.join('arquivos', 'usuarios.json'), {encoding:'utf-8'});
-      users = JSON.parse(users);
-    } else {
-      users = [];
-    }
-    users.push(model.Usuario);
-    fs.writeFileSync(path.join('arquivos', 'usuarios.json'), JSON.stringify(users));
-  }
-  
-  
-  static excluir() {
-    let existe = fs.existsSync(path.join('arquivos', 'usuarios.json'));
-    if (existe) {
-      fs.unlinkSync(path.join('arquivos', 'usuarios.json'));
-    }
+  set Id(value) {
+    this.id = value;
   }
 }
 
