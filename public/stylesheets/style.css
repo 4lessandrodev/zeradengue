@@ -287,6 +287,13 @@ body {
   padding: 2vw;
 }
 
+.sessao-denuncia input[list] {
+  height: 6vh;
+  border: 2px solid var(--dark-primary-color);
+  border-radius: 7px;
+  padding: 2vw;
+}
+
 .sessao-denuncia input[type=submit]{
   width: 100%;
   padding: 5% 0;
@@ -607,6 +614,13 @@ body {
   }
   
   .sessao-denuncia input[type=text] {
+    height: 6vh;
+    border: 2px solid var(--dark-primary-color);
+    border-radius: 7px;
+    padding: 1vw;
+  }
+  
+  .sessao-denuncia input[list] {
     height: 6vh;
     border: 2px solid var(--dark-primary-color);
     border-radius: 7px;

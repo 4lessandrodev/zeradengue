@@ -2,7 +2,7 @@
       <section class="sessao-denuncia">
         <form action="/users/perfil?_method=PUT" method="POST" enctype="multipart/form-data">
           
-          <div class="imagem" style="background-image: url('/uploads/<%=usuario.imagem%>');">
+          <div class="imagem" style="background-image: url('/avatares/<%=usuario.imagem%>');">
             <div class="icone-camera" <%if(usuario.imagem != 'no_image.png'){%> style="display:none" <%}%>  >
               <i class="fas fa-user-circle"></i>
             </div>

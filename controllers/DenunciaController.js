@@ -33,14 +33,39 @@ module.exports = {
           denuncia.Imagem = req.files[0].originalname;
           //Salvar
           let result = await DenunciaDao.salvar(denuncia);
+          res.redirect('/users');
         } else {
           //Renderizar a página passando os erros encontrados
-          res.render('userio/denuncia', {title:'Denúncia', error:e.errors});
+          let cidades = await DenunciaDao.listarCidadesPagina(49);
+        res.render('usuario/denuncia', { title: 'Denúncia', error: e.errors, usuario: req.session.usuario, cidades});
         }
       } catch (error) {
         console.log(error);
         res.sendStatus(400);
       }
-    }
+    },
     
+    //-------------------------------------------------------------------------------
+    //Listar cidades para a api
+    listarCidadesApi: async (req, res, next) => {
+      try {
+        let param = req.query;
+        param = param.filtro.toUpperCase();
+        let listaDeCidades = await DenunciaDao.listarCidades(param);
+        res.send(listaDeCidades);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    
+    //-------------------------------------------------------------------------------
+    //Renderizar página de nova denúncia
+    novaDenuncia: async (req, res, next) => {
+      try {
+        let cidades = await DenunciaDao.listarCidadesPagina(49);
+        res.render('usuario/denuncia', { title: 'Denúncia', usuario: req.session.usuario, error: null, cidades });
+      } catch (error) {
+        
+      }
+    }
   };

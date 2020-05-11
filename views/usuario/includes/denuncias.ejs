@@ -1,7 +1,7 @@
 
 <main class="main-denuncia">
   <section class="sessao-denuncia">
-    <form action="users/denuncia" method="POST" enctype="multipart/form-data">
+    <form action="/users/denuncia" method="POST" enctype="multipart/form-data">
       
       <div class="imagem">
         <div class="icone-camera">
@@ -12,14 +12,30 @@
         <input type="file" name="imagem" id="imagem" class="sr-only" onchange="openFile(event)">
       </div>
       <%- include('alertas') %> 
+
+      <div class="form-group">
+        <label for="descricao" class="sr-only">Descrição</label>
+        <input type="text" name="descricao" id="descricao" placeholder="Descrição" autocomplete="off" required>
+      </div>
+
       <div class="form-group">
         <label for="endereco" class="sr-only">Endereço</label>
-        <input type="text" name="endereco" id="endereco" placeholder="endereço">
+        <input type="text" name="endereco" id="endereco" placeholder="Endereço" autocomplete="off" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="bairro" class="sr-only">Bairro</label>
+        <input type="text" name="bairro" id="bairro" placeholder="Bairro" autocomplete="off" required>
       </div>
       
       <div class="form-group">
         <label for="cidade" class="sr-only">Cidade</label>
-        <input type="text" name="cidade" id="cidade" placeholder="Cidade-Uf">
+        <input list="cidades" name="cidade" id="cidade" placeholder="Cidade-Uf" autocomplete="off" required>
+        <datalist id="cidades">
+          <%for(let cidade of cidades){ %> 
+          <option value="<%=cidade.id%>-<%=cidade.descricao%>-<%=cidade.sigla%>">
+          <%}%>
+        </datalist>
       </div>
       
       <input type="submit" value="Salvar" class="btn btn-primary">
@@ -29,3 +45,4 @@
   </section>
 </main>
 <script src="/javascripts/filereader.js"></script>
+<script src="/javascripts/buscarcidades.js"></script>
