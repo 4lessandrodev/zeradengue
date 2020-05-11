@@ -1,10 +1,13 @@
 <%if(error != null){%>
- <div class="alert alert-danger">
-   <h4><strong>Erros</strong></h4>
-   <ul>
-     <% for(let erro of error){ %>
-       <li><%=erro.msg%> </li>
-     <% } %>
-   </ul>
- </div>
-<%}%> 
+  <div class="alert alert-danger alert-dismissible fade show">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4><strong>Erros</strong></h4>
+    <ul>
+      <% for(let erro of error){ %>
+        <li><%=erro.msg%> </li>
+        <% } %>
+      </ul>
+    </div>
+    <%}%> 

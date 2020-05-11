@@ -42,6 +42,24 @@ body {
   padding: 0;
 }
 
+.sessao-denuncia .alert ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sessao-denuncia .form{
+  max-width: 40%;
+}
+
+.sessao-denuncia .alert{
+  max-width: 100%;
+}
+
+.sessao-denuncia .alert-dismissible {
+  padding-right: 1rem;
+}
+
 .div-formulario .alert{
   padding: 0.5rem 1rem;
 }
@@ -285,6 +303,7 @@ body {
   border: 2px solid var(--dark-primary-color);
   border-radius: 7px;
   padding: 2vw;
+  min-width: 100%;
 }
 
 .sessao-denuncia input[list] {
@@ -292,6 +311,7 @@ body {
   border: 2px solid var(--dark-primary-color);
   border-radius: 7px;
   padding: 2vw;
+  min-width: 100%;
 }
 
 .sessao-denuncia input[type=submit]{
@@ -349,6 +369,7 @@ body {
   margin-top: 0;
   padding-top: 0;
   resize: none;
+  min-width: 100%;
 }
 /* AQUI FINALIZA O CSS MOBILE FIRST */
 
@@ -618,6 +639,7 @@ body {
     border: 2px solid var(--dark-primary-color);
     border-radius: 7px;
     padding: 1vw;
+    min-width: 100%;
   }
   
   .sessao-denuncia input[list] {
@@ -630,6 +652,7 @@ body {
   .sessao-denuncia input[type=submit] {
     width: 100%;
     padding: 5% 0;
+    min-width: 100%;
   }
   
   .btn-voltar {
@@ -683,6 +706,7 @@ body {
     margin-top: 0;
     padding-top: 0;
     resize: none;
+    min-width: 100%;
   }
 }
 

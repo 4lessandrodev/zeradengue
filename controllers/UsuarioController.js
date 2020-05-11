@@ -12,11 +12,11 @@ module.exports = {
   index: async (req, res, next) => {
     try {
       let userModel = new Usuario();
-      let denunModel = new Denuncia();
-      let denuncias = await DenunciaDao.listar(denunModel, 20);
+      let denuncias = await DenunciaDao.listarDenunciasComRelacionamentos(20);
       let resultado = await UsuarioDao.buscar(userModel, 'id', req.session.usuario.id);
       let usuario = { id: resultado[0].id, imagem: resultado[0].imagem, admin: resultado[0].admin, nome: resultado[0].nome };
       req.session.usuario = usuario;
+      console.log(JSON.stringify(denuncias[0]));
       res.render('usuario/index', { title: 'Home', denuncias, usuario});
     } catch (error) {
       console.log(error);
@@ -93,7 +93,7 @@ module.exports = {
           }
         } else {
           //Renderizar a pagina home informando que os dados estão inválidos
-          res.render('index', { title: 'Login', error: ['Dados inválidos'] });
+          res.render('index', { title: 'Login', error: [{ msg: 'Dados inválidos' }] });
         }
       } catch (error) {
         console.log(error);

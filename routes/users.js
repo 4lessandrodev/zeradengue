@@ -42,10 +42,9 @@ router.get('/denuncia', DenunciaController.novaDenuncia);
 //-------------------------------------------------------------------------------
 /* Salvar denuncia. */
 router.post('/denuncia', [
-  check('endereco', 'Informe endereço completo').isLength({ min: 5 }),
-  check('imagem', 'Anexar uma imagem').isEmpty(),
-  check('cidade', 'Informe a cidade').isLength({ min: 4 }),
-  check('bairro','Informe o bairro').isLength({min:3})
+  check('endereco', 'Informe endereço completo').isEmpty(),
+  check('cidade', 'Informe a cidade').isEmpty(),
+  check('bairro', 'Informe o bairro').isEmpty()
 ], uploadDenuncia.any(), DenunciaController.salvarDenuncia);
 
 //-------------------------------------------------------------------------------

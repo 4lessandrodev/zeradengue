@@ -1,6 +1,8 @@
 const Denuncia = require('./../models/Denuncia');
 const DenunciaDao = require('./../Dao/DenunciaDao');
 const { check, body, validationResult } = require('express-validator');
+const path = require('path');
+const fs = require('fs');
 
 //-------------------------------------------------------------------------------
 module.exports = {
@@ -28,20 +30,47 @@ module.exports = {
       let e = validationResult(req);
       if (e.isEmpty()) {
         //Criar o objeto model
-        let denuncia = new Denuncia(req.bady.descricao, req.body.endereco, req.body.bairro,
+        let denuncia = new Denuncia(req.body.descricao, req.body.endereco, req.body.bairro,
           req.body.cidade_id, req.session.usuario.id, 1);
           denuncia.Imagem = req.files[0].originalname;
+          //Pegar o id da cidade no campo do formulário
+          let idCidade = parseInt(req.body.cidade);
+          //Verificar se foi informado um id
+          if (isNaN(idCidade)){
+            idCidade = await DenunciaDao.buscar(denuncia, 'descricao', req.body.cidade, 1, 3);
+            //Verificar se conseguiu encontrar a cidade
+            if (idCidade[0].id) {
+              denuncia.Cidades_id = idCidade[0].id;
+            } else {
+              //Informar o usuário que a cidade é inválida
+              res.render('usuario/denuncia', { title: 'Denúncia', error: [{msg:'Cidade inválida'}], usuario: req.session.usuario, cidades });
+            }
+          } else {
+            // Sendo passado o id da cidade no formulario será atribuido a model
+            denuncia.Cidades_id = idCidade;
+          }
           //Salvar
           let result = await DenunciaDao.salvar(denuncia);
           res.redirect('/users');
         } else {
-          //Renderizar a página passando os erros encontrados
-          let cidades = await DenunciaDao.listarCidadesPagina(49);
-        res.render('usuario/denuncia', { title: 'Denúncia', error: e.errors, usuario: req.session.usuario, cidades});
+          //Criar um novo erro passando a primeira mensagem de erro
+          throw new Error(e.errors);
         }
-      } catch (error) {
-        console.log(error);
-        res.sendStatus(400);
+        // Em caso de qualquer erro executar os passos
+      } catch (err) {
+        //Listar cidades para renderinzar a lista na página
+        let cidades = await DenunciaDao.listarCidadesPagina(49);
+        //Verificar se foi realizado upload de uma imagem 
+        if (req.files[0] != undefined) {
+          let imagem = path.join('public', 'uploads', req.files[0].originalname);
+          let existeImagem = fs.existsSync(imagem);
+          //Se encontrar imagem, exluir
+          if (existeImagem) {
+            //Apagar a imagem
+            fs.unlinkSync(imagem);
+          }
+        }
+        res.render('usuario/denuncia', { title: 'Denúncia', error: [{msg:'Verifique os dados'}, {msg:err.message.slice(0,50)}], usuario: req.session.usuario, cidades });
       }
     },
     
