@@ -1,12 +1,13 @@
 const conect = require('./../config/database');
-
 const GenericDao = require('./GenericDao');
+
+//-------------------------------------------------------------------------------
 class UsuarioDao extends GenericDao{
   constructor (model) {
     super(GenericDao);
     this.Model = model;
   }
-
+//-------------------------------ATUALIZAR-PERFIL------------------------------------------------
   //Salvar o perfil do usuário (nome e imagem)
   static atualizarPerfil(model) {
     return new Promise((resolve, reject) => {
@@ -21,6 +22,7 @@ class UsuarioDao extends GenericDao{
       });
     });
   }
+  //-------------------------------------------------------------------------------
 }
 
 module.exports = UsuarioDao;

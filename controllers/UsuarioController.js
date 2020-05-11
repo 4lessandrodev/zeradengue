@@ -7,7 +7,6 @@ const { check, validationResult, body } = require('express-validator');
 
 module.exports = {
   
-  
   //--------------------------------------------------------------------------------------------
   /* Carregar a página principal */
   index: async (req, res, next) => {

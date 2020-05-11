@@ -1,9 +1,11 @@
 const conect = require('./../config/database');
+
+//-------------------------------------------------------------------------------
 class GenericDao{
   constructor (model) {
     this.Model = model;
   }
-  
+  //-----------------------------------SALVAR--------------------------------------------
   //Salvar um elemento no banco de dados de acordo com as informações passadas 
   static salvar(model) {
     //Salvar a model
@@ -18,7 +20,7 @@ class GenericDao{
       });
     });
   }
-  
+  //-----------------------------------EDITAR--------------------------------------------
   //Editar um elemento no banco de dados de acordo com o ID informado
   static editar(model) {
     //Editar a model
@@ -33,7 +35,7 @@ class GenericDao{
       });
     });
   }
-  
+  //-----------------------------------EXCLUIR--------------------------------------------
   //Excluir um elemento no banco de dados de acordo com o ID informado
   static excluir(model) {
     //Excluir a model
@@ -48,7 +50,7 @@ class GenericDao{
       });
     });
   }
-  
+  //-----------------------------------LISTAR--------------------------------------------
   //listar por padrão 10 elementos do banco de dados, caso queira mais de 10, 
   //o parâmetro limite deve ser informado
   static listar(model, LIMIT = 10) {
@@ -64,7 +66,7 @@ class GenericDao{
       });
     });
   }
-
+  //-----------------------------------BUSCAR--------------------------------------------
   //Buscar genérico, recebe o objeto model, a coluna como string a qual será aplicado o filtro de busca, 
   //o valor a ser filtrado, opcional o limite de valores por padrão é 1, e
   //Se desejar colocar o like de 1 a 3 para aplicar o filtro aproximado
@@ -110,6 +112,6 @@ class GenericDao{
       });
     });
   }
+  //-------------------------------------------------------------------------------
 }
-
 module.exports = GenericDao;
