@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 const { check, validationResult, body } = require('express-validator');
 const fs = require('fs');
 const path = require('path');
+const moment = require('moment');
 
 module.exports = {
   
@@ -13,14 +14,29 @@ module.exports = {
   /* Carregar a página principal */
   index: async (req, res, next) => {
     try {
+      //Por padrão lista as denuncias com status 1 = pendente
+      let status = 1;
+      let dataInicial = req.query.inicio;
+      let dataFinal = req.query.fim;
+      let tamanhoDaLista = 20;
+      if (req.query.status != undefined) {
+        status = req.query.status;
+      }
+      if (req.query.inicio == undefined) {
+        dataInicial = moment().subtract(30, 'days').format('YYYY-MM-DD');
+        dataFinal = moment().add(1, 'day').format('YYYY-MM-DD');
+      }
       let userModel = new Usuario();
-      let usuario_id = req.session.usuario.id;
+      let usuarioId = req.session.usuario.id;
       //Atualizar o usuário 
-      let usuarioEncontrado = await UsuarioDao.buscar(userModel, 'id', usuario_id); //Model, coluna do banco, e id do usuário 
-      let denuncias = await DenunciaDao.listarDenunciasComRelacionamentos(usuario_id); //usuario_id e Limite da lista default = 20
-      let usuario = { id: usuarioEncontrado[0].id, imagem: usuarioEncontrado[0].imagem, admin: usuarioEncontrado[0].admin, nome: usuarioEncontrado[0].nome };
+      let usuarioEncontrado = await UsuarioDao.buscar(userModel, 'id', usuarioId); //Model, coluna do banco, e id do usuário 
+      let denuncias = await DenunciaDao.listarDenunciasComRelacionamentos(usuarioId, tamanhoDaLista, status, dataInicial, dataFinal); //usuario_id e Limite da lista default = 20
+      let usuario = {
+        id: usuarioEncontrado[0].id, imagem: usuarioEncontrado[0].imagem, admin: usuarioEncontrado[0].admin,
+        nome: usuarioEncontrado[0].nome
+      };
       req.session.usuario = usuario;
-      res.render('usuario/index', { title: 'Home', denuncias, usuario});
+      res.render('usuario/index', { title: 'Home', denuncias, usuario, dataInicial, dataFinal, status});
     } catch (error) {
       console.log(error);
       res.sendStatus(400);
@@ -33,7 +49,7 @@ module.exports = {
   verUsuario: async (req, res, next) => {
     try {
       let userModel = new Usuario();
-      let resultado = await UsuarioDao.buscar(userModel, 'id', 1);
+      let resultado = await UsuarioDao.buscar(userModel, 'id', req.session.usuario.id);
       let usuario = { imagem: resultado[0].imagem, nome: resultado[0].nome };
       res.render('usuario/usuario', { title: 'Perfil', usuario, error: null });
     } catch (err) {
@@ -58,6 +74,14 @@ module.exports = {
         let model = new Usuario(email, senha);
         model.Senha = bcrypt.hashSync(senha, 10);
         let result = await UsuarioDao.salvar(model);
+        let usuarioEncontrado = await UsuarioDao.buscar(model, 'id', result.insertId);
+
+        let usuario = {
+          id: usuarioEncontrado[0].id, imagem: usuarioEncontrado[0].imagem, admin: usuarioEncontrado[0].admin,
+          nome: usuarioEncontrado[0].nome
+        };
+        req.session.usuario = usuario;
+
         res.redirect('/users');
       } catch (error) {
         console.log(error);
@@ -100,6 +124,7 @@ module.exports = {
         }
       } catch (error) {
         console.log(error);
+        res.render('index', { title: 'Login', error: [{ msg: 'Dados inválidos' }] });
       }
     } else {
       res.render('index', { title: 'Login', error: e.errors });
@@ -134,9 +159,9 @@ module.exports = {
           let { nome } = req.body;
           let { files } = req;
           model.Nome = nome;
-          model.Id = 1; //req.session.usuario.id;
+          model.Id = req.session.usuario.id; //req.session.usuario.id;
           model.Imagem = req.session.usuario.imagem; //Por padrão o usuário continua com o mesmo avatar
-
+          
           //Verifica usuário inseriu uma imagem
           console.log(files[0] != undefined);
           if (files[0] != undefined) {
@@ -147,7 +172,7 @@ module.exports = {
               let promise = await fs.unlinkSync(path.join('public', 'avatares', req.session.usuario.imagem));
             }
           }
-
+          
           let result = await UsuarioDao.atualizarPerfil(model);
           res.redirect('/users');
         } catch (error) {
