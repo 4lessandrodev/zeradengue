@@ -76,9 +76,9 @@ body {
 }
 
 .div-formulario .sub-titulo{
-text-align: center;
-margin-bottom: 4vh;
-color:var(--secondary-text-color);
+  text-align: center;
+  margin-bottom: 4vh;
+  color:var(--secondary-text-color);
 }
 
 .logo{
@@ -98,7 +98,7 @@ color:var(--secondary-text-color);
   text-align: center;
   font-size: large;
   margin-bottom: 3vh;
-   font-size: 1.6em;
+  font-size: 1.6em;
 }
 
 .label{
@@ -273,6 +273,7 @@ color:var(--secondary-text-color);
   padding: 2vh 0  0 2vh;
   text-transform: uppercase;
   color: var(--secondary-text-color);
+  display: none;
 }
 
 .main-denuncia{
@@ -288,7 +289,7 @@ color:var(--secondary-text-color);
   align-items: center;
   position:fixed;
   top: 10.5vh;
-  height: 81vh;
+  height: 88vh;
   background-color: var(--text-primary-color);
 }
 
@@ -454,7 +455,7 @@ color:var(--secondary-text-color);
     flex-direction: column;
     padding: 12% 20% 0 20%;
   }
-
+  
   .div-formulario .sub-titulo {
     color: var(--divider-color);
   }
@@ -632,6 +633,7 @@ color:var(--secondary-text-color);
   }
   
   .footer {
+    display: block;
     position: fixed;
     bottom: 0px;
     background-color: var(--text-primary-color);
