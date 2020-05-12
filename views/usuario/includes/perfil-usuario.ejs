@@ -1,6 +1,6 @@
     <main class="main-denuncia usuario">
       <section class="sessao-denuncia">
-        <form action="/users/perfil?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form action="/users/perfil?_method=PUT" method="POST" enctype="multipart/form-data" autocomplete="off">
           
           <div class="imagem" style="background-image: url('/avatares/<%=usuario.imagem%>');">
             <div class="icone-camera" <%if(usuario.imagem != 'no_image.png'){%> style="display:none" <%}%>  >
@@ -15,7 +15,7 @@
           
           <div class="form-group">
             <label for="nome" class="sr-only">Nome</label>
-            <input type="text" name="nome" id="nome" placeholder="Nome" value="<%=usuario.nome%>">
+            <input type="text" name="nome" id="nome" placeholder="Nome" value="<%=usuario.nome%> ">
           </div>
           
           <input type="submit" value="Salvar" class="btn btn-primary">

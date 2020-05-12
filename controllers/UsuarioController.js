@@ -163,7 +163,6 @@ module.exports = {
           model.Imagem = req.session.usuario.imagem; //Por padrão o usuário continua com o mesmo avatar
           
           //Verifica usuário inseriu uma imagem
-          console.log(files[0] != undefined);
           if (files[0] != undefined) {
             model.Imagem = files[0].originalname;
             //Verifica existe imagem para o usuário na pasta uploads

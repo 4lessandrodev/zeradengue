@@ -75,6 +75,12 @@ body {
   padding: 12% 10% 0 10%;
 }
 
+.div-formulario .sub-titulo{
+text-align: center;
+margin-bottom: 4vh;
+color:var(--secondary-text-color);
+}
+
 .logo{
   content: url('/images/logo-preto.png');
   display: -webkit-box;
@@ -91,7 +97,8 @@ body {
   text-transform: uppercase;
   text-align: center;
   font-size: large;
-  margin-bottom: 5vh;
+  margin-bottom: 3vh;
+   font-size: 1.6em;
 }
 
 .label{
@@ -447,6 +454,10 @@ body {
     flex-direction: column;
     padding: 12% 20% 0 20%;
   }
+
+  .div-formulario .sub-titulo {
+    color: var(--divider-color);
+  }
   
   .logo {
     content: url('/images/logo-branco.png');
@@ -463,7 +474,7 @@ body {
     color: var(--text-primary-color);
     text-transform: uppercase;
     text-align: center;
-    font-size: large;
+    font-size: 1.6em;
   }
   
   .label {

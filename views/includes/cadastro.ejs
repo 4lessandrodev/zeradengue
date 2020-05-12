@@ -4,19 +4,21 @@
         <div class="col-sm-8 div-background">
         </div>
         <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 div-formulario">
-          <form action="/cadastro" method="POST">
+          <form action="/cadastro" method="POST" autocomplete="off">
             <img src="/images/logo-branco.png" alt="logo" class="logo">
             <h1 class="titulo">Cadastrar</h1>
+            <h6 class="sub-titulo">Cadastre-se e faça já sua denúncia</h6>
             <%- include('alertas') %> 
             <div class="form-group">
               <label for="email" class="label">Email</label>
-              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" required>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" required placeholder="nome@domain.com">
             </div>
             <div class="form-group">
               <label for="senha" class="label">Senha</label>
-              <input type="password" class="form-control" id="senha" name="senha" required>
+              <input type="password" class="form-control" id="senha" name="senha" required placeholder="******">
             </div>
-            <button type="submit" class="btn btn-cadastrar">Cadastrar</button>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="button" class="btn btn-cadastrar" onclick="location.href='/login'">Já sou cadastrado</button>
           </form>
         </div>
       </div>
