@@ -3,13 +3,15 @@
     <%for(let denuncia of denuncias){%> 
       <li class="main-ul-item">
         <div class="card">
-          <img src="/uploads/<%=denuncia.imagem%>" class="card-img-top" alt="imagem" style="max-height: 15vh; object-fit: cover;">
+          <img src="/uploads/<%=denuncia.imagem%>" class="card-img-top" alt="imagem">
           <div class="card-body">
             <h5 class="card-title"><%=denuncia.descricao.slice(0, 14)%>...</h5>
             <p class="card-text"><%=denuncia.endereco.slice(0, 21)%>...</p>
-            <p class="card-text" style="font-size: 11px;"><%=denuncia.cidade.slice(0, 14)%>-<%=denuncia.estado%> |
+            <p class="card-text data-hora"><%=denuncia.cidade.slice(0, 14)%>-<%=denuncia.estado%> |
               <%=denuncia.data%></p>
-            <a href="/users/denuncia/<%=denuncia.id%>" class="btn btn-primary btn-status"><%=denuncia.status%></a>
+            <a href="/users/denuncia/<%=denuncia.id%>"
+              class="btn <%if(denuncia.status == 'Pendente'){%>btn-danger
+              <%}else{%>btn-primary<%}%> btn-status"><%=denuncia.status%></a>
           </div>
         </div>
       </li>

@@ -49,9 +49,7 @@ router.post('/denuncia', [
 
 //-------------------------------------------------------------------------------
 /* GET denuncia selecionada listing. */
-router.get('/denuncia/:id', function (req, res, next) {
-  res.render('usuario/denuncia-selecionada',{title:'Denúncia Selecionada'});
-});
+router.get('/denuncia/:id', DenunciaController.verDenuncia);
 
 //-------------------------------------------------------------------------------
 /* GET perfil do usuário listing. */

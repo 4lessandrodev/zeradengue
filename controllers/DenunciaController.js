@@ -11,9 +11,13 @@ module.exports = {
   //Visualizar denúncia selecionada
   verDenuncia: async (req, res, next) => {
     try {
-      
+      let denuncia_id = req.params.id;
+      let usuario = req.session.usuario;
+      let denuncia = await DenunciaDao.buscarDenunciasComRelacionamentos(denuncia_id, usuario.id);
+      res.render('usuario/denuncia-selecionada', { title: 'Denúncia Selecionada', denuncia:denuncia[0], usuario });
     } catch (error) {
-      
+      console.log(error);
+      res.sendStatus(400);
     }
   },
   

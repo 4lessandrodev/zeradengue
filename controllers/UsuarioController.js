@@ -4,6 +4,8 @@ const UsuarioDao = require('./../Dao/UsuarioDao');
 const DenunciaDao = require('./../Dao/DenunciaDao');
 const bcrypt = require('bcrypt');
 const { check, validationResult, body } = require('express-validator');
+const fs = require('fs');
+const path = require('path');
 
 module.exports = {
   
@@ -12,11 +14,12 @@ module.exports = {
   index: async (req, res, next) => {
     try {
       let userModel = new Usuario();
-      let denuncias = await DenunciaDao.listarDenunciasComRelacionamentos(20);
-      let resultado = await UsuarioDao.buscar(userModel, 'id', req.session.usuario.id);
-      let usuario = { id: resultado[0].id, imagem: resultado[0].imagem, admin: resultado[0].admin, nome: resultado[0].nome };
+      let usuario_id = req.session.usuario.id;
+      //Atualizar o usuário 
+      let usuarioEncontrado = await UsuarioDao.buscar(userModel, 'id', usuario_id); //Model, coluna do banco, e id do usuário 
+      let denuncias = await DenunciaDao.listarDenunciasComRelacionamentos(usuario_id); //usuario_id e Limite da lista default = 20
+      let usuario = { id: usuarioEncontrado[0].id, imagem: usuarioEncontrado[0].imagem, admin: usuarioEncontrado[0].admin, nome: usuarioEncontrado[0].nome };
       req.session.usuario = usuario;
-      console.log(JSON.stringify(denuncias[0]));
       res.render('usuario/index', { title: 'Home', denuncias, usuario});
     } catch (error) {
       console.log(error);
@@ -42,7 +45,7 @@ module.exports = {
   
   
   //--------------------------------------------------------------------------------------------
-  /* Salvar o perfil do usuário */
+  /* Criar um novo usuário */
   salvarUsuario: async (req, res, next) => {
     
     //A variável recebe o objeto de erros do express validator (Validação na rota)
@@ -131,8 +134,20 @@ module.exports = {
           let { nome } = req.body;
           let { files } = req;
           model.Nome = nome;
-          model.Imagem = files[0].originalname;
           model.Id = 1; //req.session.usuario.id;
+          model.Imagem = req.session.usuario.imagem; //Por padrão o usuário continua com o mesmo avatar
+
+          //Verifica usuário inseriu uma imagem
+          console.log(files[0] != undefined);
+          if (files[0] != undefined) {
+            model.Imagem = files[0].originalname;
+            //Verifica existe imagem para o usuário na pasta uploads
+            if (req.session.usuario.imagem != 'no_image.png') {
+              //Apaga imagem
+              let promise = await fs.unlinkSync(path.join('public', 'avatares', req.session.usuario.imagem));
+            }
+          }
+
           let result = await UsuarioDao.atualizarPerfil(model);
           res.redirect('/users');
         } catch (error) {

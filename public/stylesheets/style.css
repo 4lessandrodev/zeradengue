@@ -228,6 +228,8 @@ body {
 .card-img-top{
   padding: 3vh 0 3vh 3vh;
   width: 39%;
+  max-height: 15vh;
+  object-fit: cover;
 }
 
 .card{
@@ -237,6 +239,10 @@ body {
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+.data-hora{
+font-size: 11px;
 }
 
 .btn-status{
@@ -370,6 +376,17 @@ body {
   padding-top: 0;
   resize: none;
   min-width: 100%;
+}
+
+.denuncia-selecionada .fonte-media{
+  font-size: 14px;
+  color: var(--secondary-text-color);
+}
+
+.imagem-modal{
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
 }
 /* AQUI FINALIZA O CSS MOBILE FIRST */
 

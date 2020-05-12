@@ -1,6 +1,6 @@
 module.exports = {
-  isLoged: async (req, res, next) => {
-    notLoged = (req.session.usuario == undefined);
+  isLoged: (req, res, next) => {
+    let notLoged = (req.session.usuario == undefined);
     if (notLoged) {
       res.redirect('/');
     }

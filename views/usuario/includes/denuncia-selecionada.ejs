@@ -1,45 +1,28 @@
-<body class="body-home">
-  <header class="header">
-    <div class="header-user">
-      <div class="header-user-img">
-        <i class="fas fa-user-circle"></i>
-      </div>
-      <div class="header-user-name">
-        <h2>usuario</h2>
-      </div>
-      <div class="header-sair">
-        <i class="fas fa-power-off"></i>
-      </div>
-    </div>
-  </header>
   <main class="main-denuncia">
     <section class="sessao-denuncia denuncia-selecionada">
       
-      <div class="imagem">
-        <div class="icone-camera">
-          <i class="fas fa-image"></i>
-        </div>
-        <div class="imagem-importada">
-          <img src="" alt="imagem">
-        </div>
+      <div class="imagem" style="background-image: url('/uploads/<%=denuncia.imagem%>');" data-toggle="modal"
+        data-target=".modal-imagem-lg">
       </div>
       
       <div class="form-goup em-linha">
-        <label for="endereco">Endereço</label>
-        <textarea name="endereco" id="endereco" readonly rows="3">Rua vai quem quer vai quem quer, 50</textarea>
-      </div>
-
-      <div class="form-goup em-linha">
-        <label for="cidade">Cidade</label>
-        <input type="text" name="cidade" id="cidade" value="São Paulo - SP" readonly>
-      </div>
-
-      <div class="form-goup em-linha">
-        <label for="status">Status</label>
-        <input type="text" name="status" id="status" value="Pendente" readonly>
+        <label for="cidade"><strong>Descrição</strong></label>
+        <input type="text" name="descricao" id="descricao" value="<%=denuncia.descricao%>" readonly class="fonte-media">
       </div>
       
-      <a href="" class="btn-voltar"><i class="fas fa-chevron-left"></i> <span class="texto">Voltar</span></a>
+      <div class="form-goup em-linha">
+        <label for="endereco"><strong>Endereço</strong></label>
+        <textarea name="endereco" id="endereco" readonly class="fonte-media"
+          rows="3"><%=denuncia.endereco%>, <%=denuncia.bairro%>, <%=denuncia.cidade%>-<%=denuncia.estado%></textarea>
+      </div>
+      
+      <div class="form-goup em-linha">
+        <label for="status"><strong>Status</strong></label>
+        <input type="text" name="status" id="status" value="Pendente" readonly class="fonte-media">
+        <p class="data-hora">Em: <%=denuncia.data%></p>
+      </div>
+      
+      <a href="/users" class="btn-voltar"><i class="fas fa-chevron-left"></i> <span class="texto">Voltar</span></a>
       
     </section>
   </main>

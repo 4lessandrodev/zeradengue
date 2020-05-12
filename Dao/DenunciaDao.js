@@ -48,7 +48,7 @@ class DenunciaDao extends GenericDao {
   
   //-------------------------------------------------------------------------------
    //Listar Denúncias com o relacionamento de status, cidades, estados
-  static listarDenunciasComRelacionamentos(limite = 20) {
+  static listarDenunciasComRelacionamentos(usuario_id, limite = 20) {
     return new Promise((resolve, reject) => {
       conect.query(`
       SELECT oc.id, oc.imagem, oc.descricao, oc.endereco, oc.bairro, 
@@ -58,8 +58,34 @@ class DenunciaDao extends GenericDao {
       INNER JOIN status st ON oc.status_id = st.id
       INNER JOIN cidades cid ON cid.id = oc.cidades_id
       INNER JOIN estados uf ON uf.id = cid.estados_id
-      LIMIT ${limite}
-      `, (err, result) => {
+      WHERE usuarios_id = ?
+      ORDER BY oc.id ASC
+      LIMIT ?
+      `, [usuario_id, limite], (err, result) => {
+          if (err) {
+            console.log(err);
+            reject(err);
+          } else {
+            resolve(result);
+         }
+      });
+    });
+  }
+
+  //-------------------------------------------------------------------------------
+   //Buscar Denúncias com o relacionamento de status, cidades, estados
+  static buscarDenunciasComRelacionamentos(denuncia_id, usuario_id) {
+    return new Promise((resolve, reject) => {
+      conect.query(`
+      SELECT oc.id, oc.imagem, oc.descricao, oc.endereco, oc.bairro, 
+      DATE_FORMAT(oc.data_hora, '%d/%m/%Y %h:%i') AS data, 
+      st.descricao AS status, cid.descricao AS cidade, uf.sigla AS estado
+      FROM ocorrencias oc
+      INNER JOIN status st ON oc.status_id = st.id
+      INNER JOIN cidades cid ON cid.id = oc.cidades_id
+      INNER JOIN estados uf ON uf.id = cid.estados_id
+      WHERE oc.id = ? AND usuarios_id = ?
+      `, [denuncia_id, usuario_id], (err, result) => {
           if (err) {
             console.log(err);
             reject(err);

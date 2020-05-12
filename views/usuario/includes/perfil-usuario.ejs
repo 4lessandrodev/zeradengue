@@ -10,7 +10,9 @@
             </div>
             <input type="file" name="imagem" id="imagem" class="sr-only" onchange="openFile(event)">
           </div>
+
           <%- include('alertas') %>
+          
           <div class="form-group">
             <label for="nome" class="sr-only">Nome</label>
             <input type="text" name="nome" id="nome" placeholder="Nome" value="<%=usuario.nome%>">

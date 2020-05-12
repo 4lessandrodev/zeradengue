@@ -6,14 +6,24 @@ const { check, validationResult, body } = require('express-validator');
 
 //------------------------------------------------------------------------------
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Login', error:null});
+router.get('/', function (req, res, next) {
+  let logado = req.session.usuario != undefined;
+  if (logado) {
+    res.redirect('/users');
+  } else {
+    res.render('index', { title: 'Login', error:null});
+  }
 });
 
 //------------------------------------------------------------------------------
 /* GET home page. */
 router.get('/login', function(req, res, next) {
-  res.render('index', { title: 'Login', error:null});
+  let logado = req.session.usuario != undefined;
+  if (logado) {
+    res.redirect('/users');
+  } else {
+    res.render('index', { title: 'Login', error: null });
+  }
 });
 
 //------------------------------------------------------------------------------
@@ -26,7 +36,12 @@ router.post('/login', [
 //------------------------------------------------------------------------------
 /* GET cadastro page. */
 router.get('/cadastro', function (req, res, next) {
-  res.render('cadastro', { title: 'Cadastro', error: null });
+  let logado = req.session.usuario != undefined;
+  if (logado) {
+    res.redirect('/users');
+  } else {
+    res.render('cadastro', { title: 'Cadastro', error: null });
+  }
 });
 
 //------------------------------------------------------------------------------
