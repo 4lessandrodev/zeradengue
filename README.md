@@ -1,5 +1,12 @@
 # zeradengue
 
+####  Branches
+Este projeto possui duas Branches [[Master] ](https://github.com/ALESSANDROLMENEZES/zeradengue "[Master] ") e [[Dev]](https://github.com/ALESSANDROLMENEZES/zeradengue/tree/dev "[Dev]") na Branch Dev foi desenvolvido utilizando o padrão orientado a objeto com classes e SQL puro, enquanto na Master foi utilizado o padrão de models e sequelize, na série de vídeos do youtube só foi explicado a utilização do sequelize.
+
+Tem dúvidas?
+Entre no canal de dúvidas do slack:[ Clique aqui](https://join.slack.com/t/alessandrodev/shared_invite/zt-dvzz7tw7-zl5jN0wDfKDaDzRiEyH5oA " Clique aqui")
+
+
 ####  Tecnologias
 - NodeJS, 
 - JavaScript,
@@ -7,6 +14,7 @@
 - CSS,
 - SQL,
 - Express,
+- Sequelize
 
 > 
 Para este projeto foi utilizado SQL puro, seguindo as boas práticas de orientação objeto.
