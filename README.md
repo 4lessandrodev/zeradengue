@@ -3,9 +3,10 @@
 ####  Tecnologias
 - NodeJS, 
 - JavaScript,
-- Bootstrap
-- CSS
-- SQL
+- Bootstrap,
+- CSS,
+- SQL,
+- Express,
 
 > 
 Para este projeto foi utilizado SQL puro, seguindo as boas práticas de orientação objeto.
@@ -57,7 +58,7 @@ class GenericDao{
   //--------------------------------FIM METODO SALVAR----------------------
 ```
 
-Express: Projeto desenvolvido para a série de vídeos do youtube:
+Projeto desenvolvido para a série de vídeos do youtube:
 
 [Link Playlist Youtube](https://www.youtube.com/watch?v=50Wtl2q1-vc&list=PLUxrX6EvA-2aMiGnAk1sbMCuc5FE1mscK "Link")
 
