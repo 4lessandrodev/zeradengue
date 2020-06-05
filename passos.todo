@@ -17,20 +17,20 @@
 ✔ Modularizar as páginas com includes ejs @done (05/06/2020 15:46:22)
 - Backend
 ✔ Criar banco de dados @done (05/06/2020 15:49:22)
-☐ Instalar sequelize no projeto
+✔ Instalar sequelize no projeto @done (05/06/2020 16:46:35)
 - dependências 
 - mysql2 
 - sequelize 
 - dotenv
 - sequelize-cli -D
-☐ Criar arquivo .env com as variáveis locais
+✔ Criar arquivo .env com as variáveis locais @done (05/06/2020 16:50:11)
 - DB_USER=
 - DB_PASS=
 - DB_NAME=
 - DB_HOST=127.0.0.1
 - DB_PORT=3306
-☐ Criar pasta config e configurar acesso ao banco de dados
-☐ Criar models importando o banco de dados que criamos
+✔ Criar pasta config e configurar acesso ao banco de dados @done (05/06/2020 16:55:51)
+✔ Criar models importando o banco de dados que criamos @done (05/06/2020 17:15:02)
 - npm install -g sequelize-auto-v2
 - npm install mysql2 -g
 - Comando: sequelize-auto -o "./models" -d nomeDoShema -h localhost -u usuarioDaConexao -p 3306 -x senhaDaConexao -e mysql
@@ -38,7 +38,7 @@
 - Abrir powershell como administrador
 - Executar o comando: Set-ExecutionPolicy RemoteSigned
 - Realizar o processo novamente
-☐ Atualizar models com nomes no padrão Capitalize
+✔ Atualizar models com nomes no padrão Capitalize @done (05/06/2020 17:20:35)
 ☐ Criar migrations para cada model
 ☐ Criar seeder para cada model
 - utilizar faker para gerar os dados: faker
