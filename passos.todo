@@ -1,0 +1,65 @@
+# Passos
+-Frontend 
+✔ Criar projeto padrão express com templete ejs @done (05/06/2020 15:45:31)
+- express nomedoprojeto --ejs
+✔ Instalar as dependências @done (05/06/2020 15:45:34)
+- npm install
+✔ Importar bootstrap para o projeto (css e js) @done (05/06/2020 15:45:36)
+✔ Importar normalize (css) @done (05/06/2020 15:45:38)
+✔ Importar jquery (js) @done (05/06/2020 15:45:40)
+✔ Criar as páginas login @done (05/06/2020 15:45:41)
+✔ Criar página de cadastro @done (05/06/2020 15:45:43)
+✔ Criar pagina home @done (05/06/2020 15:45:44)
+✔ Criar página de denúncia @done (05/06/2020 15:45:47)
+✔ Criar página de visualização de uma denúncia @done (05/06/2020 15:45:48)
+✔ Aplicar estilos nas páginas com css e bootstrap @done (05/06/2020 15:45:50)
+✔ Aplicar responsividade às páginas @done (05/06/2020 15:45:51)
+✔ Modularizar as páginas com includes ejs @done (05/06/2020 15:46:22)
+- Backend
+✔ Criar banco de dados @done (05/06/2020 15:49:22)
+☐ Instalar sequelize no projeto
+- dependências 
+- mysql2 
+- sequelize 
+- dotenv
+- sequelize-cli -D
+☐ Criar arquivo .env com as variáveis locais
+- DB_USER=
+- DB_PASS=
+- DB_NAME=
+- DB_HOST=127.0.0.1
+- DB_PORT=3306
+☐ Criar pasta config e configurar acesso ao banco de dados
+☐ Criar models importando o banco de dados que criamos
+- npm install -g sequelize-auto-v2
+- npm install mysql2 -g
+- Comando: sequelize-auto -o "./models" -d nomeDoShema -h localhost -u usuarioDaConexao -p 3306 -x senhaDaConexao -e mysql
+- Se o windows bloquear o acesso você pode utilizar os seguintes passos:
+- Abrir powershell como administrador
+- Executar o comando: Set-ExecutionPolicy RemoteSigned
+- Realizar o processo novamente
+☐ Atualizar models com nomes no padrão Capitalize
+☐ Criar migrations para cada model
+☐ Criar seeder para cada model
+- utilizar faker para gerar os dados: faker
+- utilizar bcrypt para criptografar as senhas
+- utilizar moment para formatar datas
+☐ Criar controller para cada model com os métodos:
+- Salvar
+- Listar
+- Editar
+- Excluir
+- Buscar
+☐ Renderizar dados nas páginas
+☐ Implementar método de login (autenticação)
+- cookie-session
+☐ Implementar upload de imagens 
+- Multer
+- Apagar uma imagem do servidor quando for uma atualização de imagem
+☐ Validar dados obrigatórios via Backend
+- express-validator
+☐ Exibir mensagem de dados inválidos quando os dados não forem informados
+- ao realizar login
+- ao salvar usuário 
+- ao salvar denuncia
+- ao salvar perfil
