@@ -2,25 +2,109 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkInsert('People', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
+    return queryInterface.bulkInsert('cidades', [
+      {estados_id:1, id: 1, descricao:'ACRELÂNDIA', cep:'69945000'},
+      {estados_id:1, id: 2, descricao:'ASSIS BRASIL', cep:'69935000'},
+      {estados_id:1, id: 3, descricao:'BRASILÉIA', cep:'69932000'},
+      {estados_id:1, id: 4, descricao:'BUJARI', cep:'69923000'},
+      {estados_id:1, id: 5, descricao:'CAPIXABA', cep:'69922000'},
+      {estados_id:1, id: 6, descricao:'CRUZEIRO DO SUL', cep:'69980000'},
+      {estados_id:1, id: 7, descricao:'EPITACIOLÂNDIA', cep:'69934000'},
+      {estados_id:1, id: 8, descricao:'FEIJÓ', cep:'69960000'},
+      {estados_id:1, id: 9, descricao:'JORDÃO', cep:'69975000'},
+      {estados_id:1, id: 10,descricao: 'MÂNCIO LIMA', cep:'69990000'},
+      {estados_id:1, id: 11,descricao: 'MANOEL URBANO', cep:'69950000'},
+      {estados_id:1, id: 12,descricao: 'MARECHAL THAUMATURGO', cep:'69983000'},
+      {estados_id:1, id: 13,descricao: 'PLÁCIDO DE CASTRO', cep:'69928000'},
+      {estados_id:1, id: 14,descricao: 'PORTO ACRE', cep:'69921000'},
+      {estados_id:1, id: 15,descricao: 'PORTO WALTER', cep:'69982000'},
+      {estados_id:1, id: 16,descricao: 'RIO BRANCO', cep:'00000000'},
+      {estados_id:1, id: 17,descricao: 'RODRIGUES ALVES', cep:'69985000'},
+      {estados_id:1, id: 18,descricao: 'SANTA ROSA', cep:'69955000'},
+      {estados_id:1, id: 19,descricao: 'SENA MADUREIRA', cep:'69940000'},
+      {estados_id:1, id: 20,descricao: 'SENADOR GUIOMARD', cep:'69925000'},
+      {estados_id:1, id: 21,descricao: 'TARAUACÁ', cep:'69970000'},
+      {estados_id:1, id: 22,descricao: 'XAPURI', cep:'69930000'},
+      {estados_id:1, id: 1059, descricao:'CAMPINAS', cep:'69929000'},
+      {estados_id:2, id: 23,descricao: 'ÁGUA BRANCA', cep:'57490000'},
+      {estados_id:2, id: 24,descricao: 'ALAZÃO', cep:'57317000'},
+      {estados_id:2, id: 25,descricao: 'ALECRIM', cep:'57405000'},
+      {estados_id:2, id: 26,descricao: 'ANADIA', cep:'57660000'},
+      {estados_id:2, id: 27,descricao: 'ANEL', cep:'57710000'},
+      {estados_id:2, id: 28,descricao: 'ANUM NOVO', cep:'57610100'},
+      {estados_id:2, id: 29,descricao: 'ANUM VELHO', cep:'57610200'},
+      {estados_id:2, id: 30,descricao: 'ARAPIRACA', cep:'00000000'},
+      {estados_id:2, id: 31,descricao: 'ATALAIA', cep:'57690000'},
+      {estados_id:2, id: 32,descricao: 'BAIXA DA ONÇA', cep:'57317100'},
+      {estados_id:2, id: 33,descricao: 'BAIXA DO CAPIM', cep:'57317200'},
+      {estados_id:2, id: 34,descricao: 'BÁLSAMO', cep:'57317300'},
+      {estados_id:2, id: 35,descricao: 'BANANEIRAS', cep:'57317400'},
+      {estados_id:2, id: 36,descricao: 'BARRA DE SANTO ANTÔNIO', cep:'57925000'},
+      {estados_id:2, id: 37,descricao: 'BARRA DE SÃO MIGUEL', cep:'57180000'},
+      {estados_id:2, id: 38,descricao: 'BARRA DO BONIFÁCIO', cep:'57610300'},
+      {estados_id:2, id: 39,descricao: 'BARRA GRANDE', cep:'57958000'},
+      {estados_id:2, id: 40,descricao: 'BATALHA', cep:'57420000'},
+      {estados_id:2, id: 41,descricao: 'BATINGAS', cep:'57317500'},
+      {estados_id:2, id: 42,descricao: 'BELÉM', cep:'57630000'},
+      {estados_id:2, id: 43,descricao: 'BELO MONTE', cep:'57435000'},
+      {estados_id:2, id: 44,descricao: 'BOA SORTE', cep:'57610400'},
+      {estados_id:2, id: 45,descricao: 'BOA VISTA', cep:'57317600'},
+      {estados_id:2, id: 46,descricao: 'BOA VISTA', cep:'57610500'},
+      {estados_id:2, id: 47,descricao: 'BOCA DA MATA', cep:'57680000'},
+      {estados_id:2, id: 48,descricao: 'BOM JARDIM', cep:'57317700'},
+      {estados_id:2, id: 49,descricao: 'BONIFÁCIO', cep:'57610600'},
+      {estados_id:2, id: 50,descricao: 'BRANQUINHA', cep:'57830000'},
+      {estados_id:2, id: 51,descricao: 'CACIMBINHAS', cep:'57570000'},
+      {estados_id:2, id: 52,descricao: 'CAJARANA', cep:'57317800'},
+      {estados_id:2, id: 53,descricao: 'CAJUEIRO', cep:'57770000'},
+      {estados_id:2, id: 54,descricao: 'CALDEIRÕES DE CIMA', cep:'57614000'},
+      {estados_id:2, id: 55,descricao: 'CAMADANTA', cep:'57318000'},
+      {estados_id:2, id: 56,descricao: 'CAMPESTRE', cep:'57968000'},
+      {estados_id:2, id: 57,descricao: 'CAMPO ALEGRE', cep:'57250000'},
+      {estados_id:2, id: 58,descricao: 'CAMPO GRANDE', cep:'57350000'},
+      {estados_id:2, id: 59,descricao: 'CANAÃ', cep:'57317900'},
+      {estados_id:2, id: 60,descricao: 'CANAFÍSTULA', cep:'57613000'},
+      {estados_id:2, id: 61,descricao: 'CANAPI', cep:'57530000'},
+      {estados_id:2, id: 62,descricao: 'CANASTRA', cep:'57895000'},
+      {estados_id:2, id: 63,descricao: 'CANGANDU', cep:'57318100'},
+      {estados_id:2, id: 64,descricao: 'CAPELA', cep:'57780000'},
+      {estados_id:2, id: 65,descricao: 'CARNEIROS', cep:'57535000'},
+      {estados_id:2, id: 66,descricao: 'CARRASCO', cep:'57318200'},
+      {estados_id:2, id: 67,descricao: 'CHÃ PRETA', cep:'57760000'},
+      {estados_id:2, id: 68,descricao: 'COITÉ DO NÓIA', cep:'57325000'},
+      {estados_id:2, id: 69,descricao: 'COLÔNIA LEOPOLDINA', cep:'57975000'},
+      {estados_id:2, id: 70,descricao: 'COQUEIRO SECO', cep:'57140000'},
+      {estados_id:2, id: 71,descricao: 'CORURIPE', cep:'57230000'},
+      {estados_id:2, id: 72,descricao: 'CORURIPE DA CAL', cep:'57610900'},
+      {estados_id:2, id: 73,descricao: 'CRAÍBAS', cep:'57320000'},
+      {estados_id:2, id: 74,descricao: 'DELMIRO GOUVEIA', cep:'57480000'},
+      {estados_id:2, id: 75,descricao: 'DOIS RIACHOS', cep:'57560000'},
+      {estados_id:2, id: 76,descricao: 'ENTREMONTES', cep:'57465000'},
+      {estados_id:2, id: 77,descricao: 'ESTRELA DE ALAGOAS', cep:'57625000'},
+      {estados_id:2, id: 78,descricao: 'FEIRA GRANDE', cep:'57340000'},
+      {estados_id:2, id: 79,descricao: 'FELIZ DESERTO', cep:'57220000'},
+      {estados_id:2, id: 81,descricao: 'FLEXEIRAS', cep:'57995000'},
+      {estados_id:2, id: 83,descricao: 'GASPAR', cep:'57318300'},
+      {estados_id:2, id: 84,descricao: 'GIRAU DO PONCIANO', cep:'57360000'},
+      {estados_id:2, id: 85,descricao: 'IBATEGUARA', cep:'57890000'},
+      {estados_id:2, id: 86,descricao: 'IGACI', cep:'57620000'},
+      {estados_id:2, id: 87,descricao: 'IGREJA NOVA', cep:'57280000'},
+      {estados_id:2, id: 88,descricao: 'INHAPI', cep:'57545000'},
+      {estados_id:2, id: 89,descricao: 'JACARÉ DOS HOMENS', cep:'57430000'},
+      {estados_id:2, id: 90,descricao: 'JACUÍPE', cep:'57960000'},
+      {estados_id:2, id: 91,descricao: 'JAPARATINGA', cep:'57950000'},
+      {estados_id:2, id: 92,descricao: 'JARAMATAIA', cep:'57425000'},
+      {estados_id:2, id: 93,descricao: 'JENIPAPO', cep:'57318400'},
+      {estados_id:2, id: 94,descricao: 'JOAQUIM GOMES', cep:'57980000'},
+      {estados_id:2, id: 95,descricao: 'JUNDIÁ', cep:'57965000'},
+      {estados_id:2, id: 96,descricao: 'JUNQUEIRO', cep:'57270000'},
+      {estados_id:2, id: 97,descricao: 'LAGOA DA AREIA', cep:'57611200'},
+      {estados_id:2, id: 98,descricao: 'LAGOA DA CANOA', cep:'57330000'},
+      {estados_id:2, id: 99,descricao: 'LAGOA DA PEDRA', cep:'57318500'},
+    ], {});
   },
-
+  
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+    return queryInterface.bulkDelete('cidades', null, {});
   }
 };

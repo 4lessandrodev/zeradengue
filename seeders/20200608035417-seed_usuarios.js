@@ -10,7 +10,7 @@ module.exports = {
       {
         id:1,
         email: faker.internet.exampleEmail(),
-        senha: false,
+        senha: bcrypt.hashSync('abc132', 10),
         data_cadastro:moment(date).format('YYYY-MM-DD hh:mm:ss'),
         ativo:1,
         nome: faker.name.findName(),
@@ -19,7 +19,7 @@ module.exports = {
       {
         id: 2,
         email: faker.internet.exampleEmail(),
-        senha: false,
+        senha: bcrypt.hashSync('acb312', 10),
         data_cadastro: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         ativo: 1,
         nome: faker.name.findName(),
@@ -28,7 +28,7 @@ module.exports = {
       {
         id: 3,
         email: faker.internet.exampleEmail(),
-        senha: false,
+        senha: bcrypt.hashSync('cba321', 10),
         data_cadastro: moment(date).format('YYYY-MM-DD hh:mm:ss'),
         ativo: 1,
         nome: faker.name.findName(),
@@ -37,9 +37,9 @@ module.exports = {
       {
         id: 4,
         email: faker.internet.exampleEmail(),
-        senha: false,
+        senha: bcrypt.hashSync('abc321', 10),
         data_cadastro: moment(date).format('YYYY-MM-DD hh:mm:ss'),
-        ativo: 1,
+        ativo:1,
         nome: faker.name.findName(),
         imagem: faker.internet.avatar()
       }
