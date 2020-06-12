@@ -1,6 +1,8 @@
 # zeradengue
 
-Veja o projeto em produção: [ Clique aqui](alessandrodev.com:21141 "Clique aqui")
+Veja o projeto em produção: 
+
+[ Clique aqui](alessandrodev.com:21141 "Clique aqui")
 
 ####  Branches
 Este projeto possui duas Branches [[Master] ](https://github.com/ALESSANDROLMENEZES/zeradengue "[Master] ") e [[Dev]](https://github.com/ALESSANDROLMENEZES/zeradengue/tree/dev "[Dev]") na Branch Dev foi desenvolvido utilizando o padrão orientado a objeto com classes e SQL puro, enquanto na Master foi utilizado o padrão de models e sequelize, na série de vídeos do youtube só foi explicado a utilização do sequelize.
