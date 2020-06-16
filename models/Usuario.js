@@ -20,12 +20,6 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       comment: "null"
     },
-    'data_cadastro': {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
-      comment: "null"
-    },
     'ativo': {
       type: DataTypes.INTEGER(1),
       allowNull: false,
