@@ -45,11 +45,12 @@
 - utilizar bcrypt para criptografar as senhas
 - utilizar moment para formatar datas
 ☐ Criar controller para cada model com os métodos:
-- Salvar
+- Salvar ([Usuario: Ok])
 - Listar
-- Editar
+- Editar ([Usuario: Ok])
 - Excluir
 - Buscar
+- Login
 ☐ Renderizar dados nas páginas
 ☐ Implementar método de login (autenticação)
 - cookie-session

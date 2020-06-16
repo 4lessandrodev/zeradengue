@@ -28,6 +28,28 @@ module.exports = {
       res.send({ error: [{ msg: 'Erro' }] });
 
     }
+  },
+
+  edit: async (req, res) => {
+    try {
+      
+      //Substituir esse id pelo id do usuário conectado
+      let id = 1;
+      let { nome } = req.body;
+      let { files } = req;
+
+      let result = await Usuario.update(
+        { nome, imagem: files[0].filename },
+        { where: { id }}
+      );
+
+      result.senha = undefined;
+      res.send(result);
+
+    } catch (error) {
+      console.log(error);
+      res.send({ error: [{ msg: 'Erro' }] });
+    }
   }
 
 };

@@ -23,3 +23,25 @@ router.get('/perfil', function (req, res, next) {
 });
 
 module.exports = router;
+var express = require('express');
+var router = express.Router();
+const usuarioController = require('./../controllers/UsuarioController');
+const multer = require('multer');
+const path = require('path');
+//------------------------------------------------------------------
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join('public','images','avatar'));
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + (String(file.originalname).replace(' ', '-')));
+  }
+});
+var upload = multer({ storage: storage });
+//------------------------------------------------------------------
+
+
+
+router.put('/perfil', upload.any(), usuarioController.edit);
+
+module.exports = router;
