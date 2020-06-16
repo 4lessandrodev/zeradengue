@@ -50,7 +50,7 @@
 - Editar ([Usuario: Ok])
 - Excluir
 - Buscar
-- Login
+- Login ([Usuario: Ok])
 ☐ Renderizar dados nas páginas
 ☐ Implementar método de login (autenticação)
 - cookie-session

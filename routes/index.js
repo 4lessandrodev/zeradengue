@@ -19,4 +19,7 @@ router.post('/cadastro', [
   check('senha','Senha deve ter de 3 a 8 caractéres').isLength({min:3,max:8})
 ], userController.save);
 
+/* POST realizar login */
+router.post('/login', userController.login);
+
 module.exports = router;
