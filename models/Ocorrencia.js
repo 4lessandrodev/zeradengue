@@ -30,12 +30,6 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       comment: "null"
     },
-    'data_hora': {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
-      comment: "null"
-    },
     'usuarios_id': {
       type: DataTypes.INTEGER(11),
       allowNull: false,

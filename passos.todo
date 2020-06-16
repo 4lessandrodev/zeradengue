@@ -45,7 +45,7 @@
 - utilizar bcrypt para criptografar as senhas
 - utilizar moment para formatar datas
 ☐ Criar controller para cada model com os métodos:
-- Salvar ([Usuario: Ok])
+- Salvar ([Usuario: Ok, Ocorrencia: Ok])
 - Listar
 - Editar ([Usuario: Ok])
 - Excluir
