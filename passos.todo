@@ -49,7 +49,7 @@
 - Listar ([Ocorrencia: Ok])
 - Editar ([Usuario: Ok])
 - Excluir
-- Buscar
+- Buscar ([Ocorrencia: Ok])
 - Login ([Usuario: Ok])
 ☐ Renderizar dados nas páginas
 ☐ Implementar método de login (autenticação)

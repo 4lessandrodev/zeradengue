@@ -19,53 +19,76 @@ Entre no canal de dúvidas do slack:[ Clique aqui](https://join.slack.com/t/ales
 - Sequelize
 
 > 
-Para este projeto foi utilizado SQL puro, seguindo as boas práticas de orientação objeto.
+Para este projeto foi utilizado sequelize.
 >
 
 ```javascript
-class Usuario{
+  save: async (req, res) => {
+    try {
+      
+      //Usuário conectado
+      let id = 1;
+      let {
+        descricao,
+        endereco,
+        bairro,
+        cidades_id
+      } = req.body;
 
-  //O construtor recebe parâmetros default de acordo com as colunas do banco de dados
-  //Se a coluna do BD não aceita valores nulos a variável deve ter um valor default
-  constructor (email, senha, data_cadastro=new Date(), admin=0, ativo=1, nome='Anônimo', imagem='no_image.png') {
-    this.id = null; //Para aplicar filtros e buscas da model em GenericDao
-    this.tableName = 'usuarios'; //Para saber qual tabela manipular no banco de dados através da GenericDao
-    this.modelName = 'Usuario'; //Para saber qual atributo selecionar na classe GenericDao
-    this.Usuario = { //Objeto a ser informado como json na GenericDao para salvar sem ter que informar colunas
-      email,
-      senha,
-      admin,
-      data_cadastro,
-      ativo,
-      nome,
-      imagem
-    };
-  }
-}
+      let { files } = req;
+
+      let result = await Ocorrencia.create(
+        {
+          usuarios_id:id,
+          descricao,
+          endereco,
+          bairro,
+          cidades_id,
+          imagem:files[0].filename
+        }
+      );
+
+      res.send(result);
+
+    } catch (error) {
+      res.send({ error: [{ msg: 'Erro' }] });
+    }
+  },
 ```
 
 
 ```javascript
-class GenericDao{
-  constructor (model) {
-    this.Model = model;
-  }
-  //--------------------------------INÍCIO METODO SALVAR-------------------
-  //Salvar um elemento no banco de dados de acordo com as informações passadas 
-  static salvar(model) {
-    //Salvar a model
-    return new Promise((resolve, reject) => {
-      conect.query(`INSERT INTO ${model.tableName} SET ?`, model[model.modelName], (err, result) => {
-        if (err) {
-          console.log(err);
-          reject(err);
-        } else {
-          resolve(result);
+  list: async (req, res) => {
+    try {
+      //Id do usuário conectado
+      let id = 1;
+
+      const currentDate = new Date();
+      let dateStart = moment(currentDate).subtract(30, 'days').format('YYYY-MM-DD hh:mm:ss');
+      let dateEnd = moment(currentDate).add(1, 'day').format('YYYY-MM-DD hh:mm:ss');
+
+      let { limit = 20, status = 1, start = dateStart, end = dateEnd, page=1 } = req.query;
+      limit = parseInt(limit);
+      page = parseInt(page - 1);
+      let { count: size, rows: ocorrencias } = await Ocorrencia.findAndCountAll(
+        {
+          where: {
+            usuarios_id: id,
+            status_id: status,
+            data_hora: { [Op.between]: [start, end] },
+          },
+          limit,
+          offset:page * limit
         }
-      });
-    });
+      );
+
+      res.send({ size, ocorrencias });
+
+    } catch (error) {
+      res.send({ error: [{ msg: 'Erro' }] });
+    }
   }
-  //--------------------------------FIM METODO SALVAR----------------------
+  //--------------------------------FIM METODO LISTAR----------------------
 ```
 
 Projeto desenvolvido para a série de vídeos do youtube:

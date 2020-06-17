@@ -63,8 +63,30 @@ module.exports = {
       res.send({ size, ocorrencias });
 
     } catch (error) {
-      console.log(error);
       res.send({ error: [{ msg: 'Erro' }] });
+    }
+  },
+
+  find: async (req, res) => {
+    try {
+      
+      let userId = 1;
+      let { id } = req.params;
+      let ocorrencia = await Ocorrencia.findOne(
+        {
+          where: {
+            id,
+            usuarios_id: userId
+          }
+        });
+
+      if (!ocorrencia) {
+        return res.send({ ocorrencia:{} });
+      }
+      res.send({ ocorrencia });
+
+    } catch (error) {
+      res.send({ error: [{ msg: 'Erro' }] });  
     }
   }
   

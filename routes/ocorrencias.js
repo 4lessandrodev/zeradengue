@@ -21,6 +21,9 @@ var upload = multer({ storage: storage });
 router.post('/save', upload.any(), denunciaController.save);
 
 /* GET listar ocorrencias */
-router.get('/list' ,denunciaController.list);
+router.get('/list', denunciaController.list);
+
+/* GET listar ocorrencias */
+router.get('/find/:id' ,denunciaController.find);
 
 module.exports = router;
