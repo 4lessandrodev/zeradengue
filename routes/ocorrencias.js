@@ -17,7 +17,10 @@ var upload = multer({ storage: storage });
 
 
 
+/* POST nova ocorrência */
+router.post('/save', upload.any(), denunciaController.save);
 
-router.post('/save', upload.any() ,denunciaController.save);
+/* GET listar ocorrencias */
+router.get('/list' ,denunciaController.list);
 
 module.exports = router;

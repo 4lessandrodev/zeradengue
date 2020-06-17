@@ -57,6 +57,10 @@ module.exports = function(sequelize, DataTypes) {
         model: 'Cidade',
         key: 'id'
       }
+    },
+    'data_hora': {
+      type: sequelize.literal('CURRENT_TIMESTAMP'),
+      allowNull: true,
     }
   }, {
       tableName: 'ocorrencias',

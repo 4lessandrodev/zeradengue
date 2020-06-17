@@ -46,7 +46,7 @@
 - utilizar moment para formatar datas
 ☐ Criar controller para cada model com os métodos:
 - Salvar ([Usuario: Ok, Ocorrencia: Ok])
-- Listar
+- Listar ([Ocorrencia: Ok])
 - Editar ([Usuario: Ok])
 - Excluir
 - Buscar
@@ -54,10 +54,10 @@
 ☐ Renderizar dados nas páginas
 ☐ Implementar método de login (autenticação)
 - cookie-session
-☐ Implementar upload de imagens 
+✔ Implementar upload de imagens @done (17/06/2020 14:41:49)
 - Multer
 - Apagar uma imagem do servidor quando for uma atualização de imagem
-☐ Validar dados obrigatórios via Backend
+✔ Validar dados obrigatórios via Backend @done (17/06/2020 14:41:58)
 - express-validator
 ☐ Exibir mensagem de dados inválidos quando os dados não forem informados
 - ao realizar login
