@@ -3,11 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var ocorrenciasRouter = require('./routes/ocorrencias');
-
+const cookieSession = require('cookie-session');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const ocorrenciasRouter = require('./routes/ocorrencias');
+require('dotenv').config();
+const Auth = require('./middleware/Auth');
 var app = express();
 
 // view engine setup
@@ -19,8 +20,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cookieSession({
+  name: 'session',
+  keys: [process.env.COOKIE_KEY1, process.env.COOKIE_KEY2],
+  maxAge: 24 * 60 * 60 * 1000 // 24 Horas
+}));
 
 app.use('/', indexRouter);
+app.use(Auth.autenticar);
 app.use('/users', usersRouter);
 app.use('/ocorrencias', ocorrenciasRouter);
 

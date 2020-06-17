@@ -52,7 +52,8 @@
 - Buscar ([Ocorrencia: Ok])
 - Login ([Usuario: Ok])
 ☐ Renderizar dados nas páginas
-☐ Implementar método de login (autenticação)
+☐ Implementar cadastro do usuário através da página html
+✔ Implementar método de login (autenticação) @done (17/06/2020 19:20:01)
 - cookie-session
 ✔ Implementar upload de imagens @done (17/06/2020 14:41:49)
 - Multer

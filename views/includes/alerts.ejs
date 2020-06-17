@@ -1,0 +1,9 @@
+<% if (error) { %>
+ <div class="alert alert-danger alertas-form">
+   <ul>
+     <% for( let err of error ) { %>
+     <li><%=err.msg%></li>
+     <% } %>
+   </ul>
+ </div>
+<% } %>

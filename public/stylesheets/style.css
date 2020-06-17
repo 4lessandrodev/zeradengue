@@ -63,7 +63,13 @@ body {
   text-transform: uppercase;
   text-align: center;
   font-size: large;
-  margin-bottom: 10vh;
+  margin-bottom: 4vh;
+}
+
+.alertas-form ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .label{

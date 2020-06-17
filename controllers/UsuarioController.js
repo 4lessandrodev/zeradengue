@@ -53,23 +53,30 @@ module.exports = {
     login: async (req, res) => {
       try {
         let { email, senha } = req.body;
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+          res.render('index', { title: 'Login', error: errors.array(), email, senha });
+        }
+
         const user = await Usuario.findOne({ where: { email } });
         
         if (!user) {
-          return res.send({ error: [{ msg: 'Email ou senha inválido' }] });
+          res.render('index', { title: 'Login', error: [{ msg: 'Email ou senha inválido' }], email, senha });
         }
         if (!user.ativo) {
-          return res.send({ error: [{ msg: 'Usuário bloqueado' }] });
+          res.render('index', { title: 'Login', error: [{ msg: 'Usuário bloqueado' }], email, senha});
         }
         const matchPassword = bcrypt.compareSync(senha, user.senha);
         if (!matchPassword) {
-          return res.send({ error: [{ msg: 'Email ou senha inválido' }] });
+          res.render('index', { title: 'Login', error: [{ msg: 'Email ou senha inválido' }], email, senha });
         }
         
-        res.send('Usuário conectado');
+        user.senha = undefined;
+        req.session.USER = user;
+        res.redirect('/users/home');
 
       } catch (error) {
-        res.send({ error: [{ msg: 'Erro' }] });
+        res.render('index', { title: 'Login', error: [{ msg: 'Erro' }], email, senha  });
       }
     }
     
