@@ -33,8 +33,7 @@ module.exports = {
   edit: async (req, res) => {
     try {
       
-      //Substituir esse id pelo id do usuário conectado
-      let id = 22;
+      let id = req.session.USER.id;
       let { nome } = req.body;
       let { files } = req;
       
@@ -43,9 +42,12 @@ module.exports = {
         { where: { id }}
         );
         
-        res.send(result);
+      req.session.USER.nome = nome;
+      req.session.USER.imagem = files[0].filename;
+      res.redirect('/users/home');
         
-      } catch (error) {
+    } catch (error) {
+        console.log(error);
         res.send({ error: [{ msg: 'Erro' }] });
       }
     },

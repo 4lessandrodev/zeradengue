@@ -1,24 +1,29 @@
     <main class="main-denuncia usuario">
       <section class="sessao-denuncia">
-        <form action="">
+        <form method="POST" action="/users/perfil?_method=PUT" enctype="multipart/form-data">
 
-          <div class="imagem">
+          <input type="file" hidden name="avatar" id="input_file" onchange="fileReader(event)" required>
+
+          <div class="imagem" id="upload-img" 
+          <% if (user.imagem != 'avatar.png') { %>
+           style="background-image:url('/images/avatar/<%=user.imagem%>')"
+          <% } %>>
             <div class="icone-camera">
+          <% if (user.imagem == 'avatar.png') { %>
               <i class="fas fa-user-circle"></i>
-            </div>
-            <div class="imagem-importada">
-              <img src="" alt="imagem">
+          <% } %>
             </div>
           </div>
 
           <div class="form-group">
             <label for="nome" class="sr-only">Nome</label>
-            <input type="text" name="endereco" id="nome" placeholder="Nome">
+            <input type="text" name="nome" id="nome" placeholder="Nome" value="<%=user.nome%>" required>
           </div>
 
           <input type="submit" value="Salvar" class="btn btn-primary">
-          <a href="" class="btn-voltar"><i class="fas fa-chevron-left"></i> <span class="texto">Voltar</span></a>
+          <a href="/users/home" class="btn-voltar"><i class="fas fa-chevron-left"></i> <span class="texto">Voltar</span></a>
 
         </form>
       </section>
     </main>
+    <script src="/javascripts/upload-img.js"></script>

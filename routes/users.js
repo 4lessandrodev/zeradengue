@@ -36,7 +36,8 @@ router.get('/denuncia/:id', function (req, res, next) {
 
 /* GET perfil do usuário listing. */
 router.get('/perfil', function (req, res, next) {
-  res.render('usuario/usuario',{title:'Perfil'});
+  const user = req.session.USER;
+  res.render('usuario/usuario', { title: 'Perfil', user});
 });
 
 /* PUT editar perfil do usuário */

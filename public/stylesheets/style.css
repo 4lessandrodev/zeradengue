@@ -119,6 +119,7 @@ body {
 .header-user-img{
   font-size: 2.5em;
   margin: 1.5%;
+  cursor: pointer;
 }
 
 .header-user{
@@ -133,8 +134,19 @@ body {
           flex-grow: 1;
 }
 
+.header-user-name h2{
+cursor: pointer;
+}
+
 .header-sair{
   margin: 2vw;
+  cursor: pointer;
+}
+
+#upload-img{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .nav-filtro{

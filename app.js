@@ -9,6 +9,7 @@ const usersRouter = require('./routes/users');
 const ocorrenciasRouter = require('./routes/ocorrencias');
 require('dotenv').config();
 const Auth = require('./middleware/Auth');
+const methodOverride = require('method-override');
 var app = express();
 
 // view engine setup
@@ -25,6 +26,7 @@ app.use(cookieSession({
   keys: [process.env.COOKIE_KEY1, process.env.COOKIE_KEY2],
   maxAge: 24 * 60 * 60 * 1000 // 24 Horas
 }));
+app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use(Auth.autenticar);
