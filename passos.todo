@@ -51,8 +51,8 @@
 - Excluir
 - Buscar ([Ocorrencia: Ok])
 - Login ([Usuario: Ok])
+✔ Implementar cadastro do usuário através da página html @done (17/06/2020 23:34:39)
 ☐ Renderizar dados nas páginas
-☐ Implementar cadastro do usuário através da página html
 ✔ Implementar método de login (autenticação) @done (17/06/2020 19:20:01)
 - cookie-session
 ✔ Implementar upload de imagens @done (17/06/2020 14:41:49)

@@ -6,27 +6,27 @@ module.exports = {
   
   save: async (req, res) => {
     try {
+      let { email, senha } = req.body;
       
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        return res.status(422).json({ errors: errors.array() });
+        res.render('cadastro', { title: 'Cadastro', error: errors.array(), email, senha });
       }
       
-      let { email, senha } = req.body;
       
       senha = bcrypt.hashSync(senha, 10);
       let exist = await Usuario.findOne({ where: { email } });
       if (exist) {
-        return res.send({ error: [{ msg: 'Usuário já existe' }] });
+        res.render('cadastro', { title: 'Cadastro', error: [{ msg: 'Usuário já existe' }] , email, senha });
       }
-      let result = await Usuario.create({ email, senha });
-      result.senha = undefined;
-      res.send(result);
+      let user = await Usuario.create({ email, senha });
+      user.senha = undefined;
+
+      req.session.USER = user;
+      res.redirect('/users/home');
       
     } catch (error) {
-      
-      res.send({ error: [{ msg: 'Erro' }] });
-      
+      res.render('cadastro', { title: 'Cadastro', error: [{ msg: 'Erro' }], email:'', senha:'' });
     }
   },
   
@@ -76,7 +76,7 @@ module.exports = {
         res.redirect('/users/home');
 
       } catch (error) {
-        res.render('index', { title: 'Login', error: [{ msg: 'Erro' }], email, senha  });
+        res.render('index', { title: 'Login', error: [{ msg: 'Erro' }], email:'', senha:'' });
       }
     }
     
