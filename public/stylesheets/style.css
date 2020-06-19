@@ -136,11 +136,21 @@ body {
 
 .header-user-name h2{
 cursor: pointer;
+padding-top: 2vh;
 }
 
 .header-sair{
   margin: 2vw;
   cursor: pointer;
+}
+
+.icone-user{
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover ;
 }
 
 #upload-img{
@@ -277,11 +287,18 @@ cursor: pointer;
   display: none;
 }
 
-.sessao-denuncia input[type=text]{
+.sessao-denuncia input[type=text] {
 height: 6vh;
 border: 2px solid var(--dark-primary-color);
 border-radius: 7px;
 padding: 1vw;
+min-width: 100%;
+}
+
+.sessao-denuncia select{
+ border: 2px solid var(--dark-primary-color);
+ border-radius: 7px;
+ min-width: 100%;
 }
 
 .sessao-denuncia input[type=submit]{

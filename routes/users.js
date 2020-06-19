@@ -3,6 +3,7 @@ var router = express.Router();
 var express = require('express');
 var router = express.Router();
 const usuarioController = require('./../controllers/UsuarioController');
+const denunciaController = require('./../controllers/DenunciaController');
 const multer = require('multer');
 const path = require('path');
 const Auth = require('./../middleware/Auth');
@@ -20,18 +21,18 @@ var upload = multer({ storage: storage });
 
 /* GET users listing. */
 router.get('/home', function (req, res, next) {
-  res.render('usuario/index',{title:'Home'});
+  const user = req.session.USER;
+  res.render('usuario/index',{title:'Home', user});
 });
 
 
 /* GET nova denuncia listing. */
-router.get('/denuncia', function (req, res, next) {
-  res.render('usuario/denuncia',{title:'Denúncia'});
-});
+router.get('/denuncia', denunciaController.renderizarDenuncia);
 
 /* GET denuncia selecionada listing. */
 router.get('/denuncia/:id', function (req, res, next) {
-  res.render('usuario/denuncia-selecionada',{title:'Denúncia Selecionada'});
+  const user = req.session.USER;
+  res.render('usuario/denuncia-selecionada',{title:'Denúncia Selecionada', user});
 });
 
 /* GET perfil do usuário listing. */

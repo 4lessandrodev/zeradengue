@@ -1,44 +1,46 @@
 
-<body class="body-home">
-  <header class="header">
-    <div class="header-user">
-      <div class="header-user-img">
-        <i class="fas fa-user-circle"></i>
-      </div>
-      <div class="header-user-name">
-        <h2>usuario</h2>
-      </div>
-      <div class="header-sair">
-        <i class="fas fa-power-off"></i>
-      </div>
-    </div>
-  </header>
   <main class="main-denuncia">
     <section class="sessao-denuncia">
-      <form action="">
+      <form method="POST" action="/ocorrencias/save" enctype="multipart/form-data">
         
-        <div class="imagem">
+        <input type="file" required hidden name="image" id="input_file" onchange="fileReader(event)">
+
+        <div class="imagem" id="upload-img">
           <div class="icone-camera">
             <i class="fas fa-camera"></i>
           </div>
-          <div class="imagem-importada">
-            <img src="" alt="imagem">
-          </div>
         </div>
         
+        <div class="form-group">
+          <label for="descricao" class="sr-only">Descrição</label>
+          <input type="text" name="descricao" id="descricao" placeholder="Descrição" required>
+        </div>
+
         <div class="form-group">
           <label for="endereco" class="sr-only">Endereço</label>
-          <input type="text" name="endereco" id="endereco" placeholder="endereço">
+          <input type="text" name="endereco" id="endereco" placeholder="endereço" required>
         </div>
-        
+
+        <div class="form-group">
+          <label for="bairro" class="sr-only">Bairro</label>
+          <input type="text" name="bairro" id="bairro" placeholder="Bairro" required>
+        </div>
+
         <div class="form-group">
           <label for="cidade" class="sr-only">Cidade</label>
-          <input type="text" name="cidade" id="cidade" placeholder="Cidade-Uf">
+          <select class="form-control" id="cidade" name="cidades_id" placeholder="Cidade-Uf" required>
+            <% for( let cidade of cidades) { %>
+              <option value="<%=cidade.id%>"><%=cidade.descricao%>
+                - <%=cidade.estados.sigla%>
+              </option>
+            <% } %>
+          </select>
         </div>
         
         <input type="submit" value="Salvar" class="btn btn-primary">
-        <a href="" class="btn-voltar"><i class="fas fa-chevron-left"></i> <span class="texto">Voltar</span></a>
+        <a href="/users/home" class="btn-voltar"><i class="fas fa-chevron-left"></i> <span class="texto">Voltar</span></a>
         
       </form>
     </section>
   </main>
+  <script src="/javascripts/upload-img.js"></script>

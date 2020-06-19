@@ -1,14 +1,14 @@
-const { Ocorrencia } = require('./../models');
+const { Cidade, Ocorrencia, Estado } = require('./../models');
 const moment = require('moment');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
+
 module.exports = {
   
   save: async (req, res) => {
     try {
-      
-      //Usuário conectado
-      let id = 1;
+
+      let id = req.session.USER.id;
       let {
         descricao,
         endereco,
@@ -29,7 +29,7 @@ module.exports = {
         }
       );
 
-      res.send(result);
+      res.redirect('/users/home');
 
     } catch (error) {
       res.send({ error: [{ msg: 'Erro' }] });
@@ -87,6 +87,29 @@ module.exports = {
 
     } catch (error) {
       res.send({ error: [{ msg: 'Erro' }] });  
+    }
+  },
+
+  renderizarDenuncia: async (req, res) => {
+    try {
+      const user = req.session.USER;
+
+      const cidades = await Cidade.findAll(
+        {
+          limit: 50,
+          include: [{
+            model: Estado,
+            as: 'estados',
+            required:true
+          }]
+        }
+      );
+
+      //res.send(cidades);
+      res.render('usuario/denuncia', { title: 'Denúncia', user, cidades });
+
+    } catch (error) {
+      res.send({ error: [{ msg: 'Erro' }] });
     }
   }
   
