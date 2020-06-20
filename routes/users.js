@@ -20,20 +20,14 @@ var upload = multer({ storage: storage });
 //------------------------------------------------------------------
 
 /* GET users listing. */
-router.get('/home', function (req, res, next) {
-  const user = req.session.USER;
-  res.render('usuario/index',{title:'Home', user});
-});
+router.get('/home', denunciaController.list);
 
+/* GET denuncia selecionada listing. */
+router.get('/denuncia/:id', denunciaController.find);
 
 /* GET nova denuncia listing. */
 router.get('/denuncia', denunciaController.renderizarDenuncia);
 
-/* GET denuncia selecionada listing. */
-router.get('/denuncia/:id', function (req, res, next) {
-  const user = req.session.USER;
-  res.render('usuario/denuncia-selecionada',{title:'Denúncia Selecionada', user});
-});
 
 /* GET perfil do usuário listing. */
 router.get('/perfil', function (req, res, next) {

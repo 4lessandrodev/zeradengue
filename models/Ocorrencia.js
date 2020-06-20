@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Ocorrencia', {
+  let Ocorrencia =  sequelize.define('Ocorrencia', {
     'id': {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -66,4 +66,11 @@ module.exports = function(sequelize, DataTypes) {
       tableName: 'ocorrencias',
       timestamps: false,
   });
+
+  Ocorrencia.associate = (models) => {
+    Ocorrencia.belongsTo(models.Cidade, { foreignKey: 'cidades_id', as:'cidade'});
+    Ocorrencia.belongsTo(models.Status, { foreignKey: 'status_id', as:'status'});
+  };
+
+  return Ocorrencia;
 };

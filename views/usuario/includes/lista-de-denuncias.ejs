@@ -1,85 +1,19 @@
 <main class="main">
       <ul class="main-ul">
+
+        <% for( let ocorrencia of ocorrencias ) { %>
         <li class="main-ul-item">
           <div class="card">
-            <img src="/images/no-image.png" class="card-img-top" alt="imagem">
+            <img src="/images/denuncias/<%=ocorrencia.imagem%>" class="card-img-top" alt="imagem">
             <div class="card-body">
-              <p class="card-text">Rua vai quem quer, 50</p>
-              <a href="#" class="btn btn-primary btn-status">Pendente</a>
+              <h4 class="card-text"><%=ocorrencia.descricao%></h4>
+              <p><%=moment(ocorrencia.data_hora).format('DD/MM hh:mm')%></p>
+              <a href="/users/denuncia/<%=ocorrencia.id%>"
+                class="btn btn-primary btn-status"><%=ocorrencia.status.descricao%></a>
             </div>
           </div>
         </li>
-        
-        <li class="main-ul-item">
-          <div class="card">
-            <img src="/images/no-image.png" class="card-img-top" alt="imagem">
-            <div class="card-body">
-              <p class="card-text">Rua vai quem quer, 50</p>
-              <a href="#" class="btn btn-primary btn-status">Pendente</a>
-            </div>
-          </div>
-        </li>
-        
-        <li class="main-ul-item">
-          <div class="card">
-            <img src="/images/no-image.png" class="card-img-top" alt="imagem">
-            <div class="card-body">
-              <p class="card-text">Rua vai quem quer, 50</p>
-              <a href="#" class="btn btn-primary btn-status">Pendente</a>
-            </div>
-          </div>
-        </li>
-        
-        <li class="main-ul-item">
-          <div class="card">
-            <img src="/images/no-image.png" class="card-img-top" alt="imagem">
-            <div class="card-body">
-              <p class="card-text">Rua vai quem quer, 50</p>
-              <a href="#" class="btn btn-primary btn-status">Pendente</a>
-            </div>
-          </div>
-        </li>
-        
-        <li class="main-ul-item">
-          <div class="card">
-            <img src="/images/no-image.png" class="card-img-top" alt="imagem">
-            <div class="card-body">
-              <p class="card-text">Rua vai quem quer, 50</p>
-              <a href="#" class="btn btn-primary btn-status">Pendente</a>
-            </div>
-          </div>
-        </li>
-        
-        
-        <li class="main-ul-item">
-          <div class="card">
-            <img src="/images/no-image.png" class="card-img-top" alt="imagem">
-            <div class="card-body">
-              <p class="card-text">Rua vai quem quer, 50</p>
-              <a href="#" class="btn btn-primary btn-status">Pendente</a>
-            </div>
-          </div>
-        </li>
-        
-        <li class="main-ul-item">
-          <div class="card">
-            <img src="/images/no-image.png" class="card-img-top" alt="imagem">
-            <div class="card-body">
-              <p class="card-text">Rua vai quem quer, 50</p>
-              <a href="#" class="btn btn-primary btn-status">Pendente</a>
-            </div>
-          </div>
-        </li>
-        
-        <li class="main-ul-item">
-          <div class="card">
-            <img src="/images/no-image.png" class="card-img-top" alt="imagem">
-            <div class="card-body">
-              <p class="card-text">Rua vai quem quer, 50</p>
-              <a href="#" class="btn btn-primary btn-status">Pendente</a>
-            </div>
-          </div>
-        </li>
-        
+        <% } %>
+
       </ul>
     </main>

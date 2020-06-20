@@ -1,31 +1,39 @@
   <main class="main-denuncia">
     <section class="sessao-denuncia denuncia-selecionada">
       
-      <div class="imagem">
+      <div class="imagem" id="upload-img"
+      <% if (ocorrencia.imagem != 'no_image.png') { %>
+       style="background-image:url('/images/denuncias/<%=ocorrencia.imagem%>')"
+      <% } %>>
         <div class="icone-camera">
+      <% if (ocorrencia.imagem == 'no_image.png') { %>
           <i class="fas fa-image"></i>
-        </div>
-        <div class="imagem-importada">
-          <img src="" alt="imagem">
+      <% } %>
         </div>
       </div>
       
       <div class="form-goup em-linha">
+        <label for="endereco">Descrição</label>
+        <textarea name="endereco" id="endereco" readonly rows="2"><%=ocorrencia.descricao%></textarea>
+      </div>
+
+      <div class="form-goup em-linha">
         <label for="endereco">Endereço</label>
-        <textarea name="endereco" id="endereco" readonly rows="3">Rua vai quem quer vai quem quer, 50</textarea>
+        <textarea name="endereco" id="endereco" readonly rows="2"><%=ocorrencia.endereco%></textarea>
       </div>
 
       <div class="form-goup em-linha">
         <label for="cidade">Cidade</label>
-        <input type="text" name="cidade" id="cidade" value="São Paulo - SP" readonly>
+        <input type="text" name="cidade" id="cidade"
+          value="<%=ocorrencia.cidade.descricao%> - <%=ocorrencia.cidade.estados.sigla%>" readonly>
       </div>
 
       <div class="form-goup em-linha">
         <label for="status">Status</label>
-        <input type="text" name="status" id="status" value="Pendente" readonly>
+        <input type="text" name="status" id="status" value="<%=ocorrencia.status.descricao%>" readonly>
       </div>
       
-      <a href="" class="btn-voltar"><i class="fas fa-chevron-left"></i> <span class="texto">Voltar</span></a>
+      <a href="/users/home" class="btn-voltar"><i class="fas fa-chevron-left"></i> <span class="texto">Voltar</span></a>
       
     </section>
   </main>
