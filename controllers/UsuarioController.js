@@ -75,6 +75,7 @@ module.exports = {
         
         user.senha = undefined;
         req.session.USER = user;
+        
         res.redirect('/users/home');
 
       } catch (error) {

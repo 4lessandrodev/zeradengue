@@ -45,6 +45,10 @@ module.exports = {
       let dateEnd = moment(currentDate).add(1, 'day').format('YYYY-MM-DD hh:mm:ss');
         
       let { limit = 20, status = 1, start = dateStart, end = dateEnd, page = 1 } = req.query;
+
+      start = moment(start).format('YYYY-MM-DD hh:mm:ss');
+      end = moment(end).format('YYYY-MM-DD hh:mm:ss');
+
       limit = parseInt(limit);
       page = parseInt(page - 1);
       let { count: size, rows: ocorrencias } = await Ocorrencia.findAndCountAll(
@@ -106,7 +110,7 @@ module.exports = {
         });
       
       if (!ocorrencia) {
-        res.render('usuario/denuncia-selecionada', { title: 'Denúncia Selecionada', user, ocorrencia: {} });
+        res.redirect('/users/home');
       }
             
       res.render('usuario/denuncia-selecionada', { title: 'Denúncia Selecionada', user, ocorrencia });

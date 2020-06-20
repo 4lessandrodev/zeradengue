@@ -58,6 +58,19 @@ body {
   width: 60%;
 }
 
+.card-body{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
 .titulo{
   color: var(--accent-color);
   text-transform: uppercase;
@@ -534,6 +547,7 @@ width: 100%;
   top: 18.5vh;
   overflow-y: scroll;
   height: 73vh;
+  min-width: 100%;
 }
 
 .card-img-top {
@@ -548,6 +562,7 @@ width: 100%;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+
 }
 
 .btn-status {
